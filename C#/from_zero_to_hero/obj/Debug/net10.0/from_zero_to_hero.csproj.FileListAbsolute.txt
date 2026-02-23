@@ -1,0 +1,14 @@
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\bin\Debug\net10.0\from_zero_to_hero.exe
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\bin\Debug\net10.0\from_zero_to_hero.deps.json
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\bin\Debug\net10.0\from_zero_to_hero.runtimeconfig.json
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\bin\Debug\net10.0\from_zero_to_hero.dll
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\bin\Debug\net10.0\from_zero_to_hero.pdb
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\from_zero_to_hero.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\from_zero_to_hero.AssemblyInfoInputs.cache
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\from_zero_to_hero.AssemblyInfo.cs
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\from_zero_to_hero.csproj.CoreCompileInputs.cache
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\from_zero_to_hero.dll
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\refint\from_zero_to_hero.dll
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\from_zero_to_hero.pdb
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\from_zero_to_hero.genruntimeconfig.cache
+C:\Users\ofraile.COSPA\Desktop\oscar\coding_playground\C#\from_zero_to_hero\obj\Debug\net10.0\ref\from_zero_to_hero.dll
