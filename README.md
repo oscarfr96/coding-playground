@@ -2,7 +2,8 @@
 
 Welcome to my personal practice and experimentation repository.
 
-This space has one main purpose: **to maintain mental agility and practice coding the "old-fashioned way", without the use of AI**, to solidify foundational knowledge and explore new technologies on my own. It's my coding gym, where I test, learn, and make mistakes to keep improving.
+This space is my coding gym, where I experiment, learn, and improve. 
+**When diving into core concepts, I prioritize coding by hand without AI assistance** to solidify my foundational knowledge and maintain mental agility while exploring new technologies.
 
 ## 📂 Project Structure
 
