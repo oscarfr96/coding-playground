@@ -1,0 +1,15 @@
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\from_zero_to_hero.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\from_zero_to_hero.AssemblyInfoInputs.cache
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\from_zero_to_hero.AssemblyInfo.cs
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\from_zero_to_hero.csproj.CoreCompileInputs.cache
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\from_zero_to_hero.sourcelink.json
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\bin\Debug\net9.0\from_zero_to_hero.exe
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\bin\Debug\net9.0\from_zero_to_hero.deps.json
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\bin\Debug\net9.0\from_zero_to_hero.runtimeconfig.json
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\bin\Debug\net9.0\from_zero_to_hero.dll
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\bin\Debug\net9.0\from_zero_to_hero.pdb
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\from_zero_to_hero.dll
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\refint\from_zero_to_hero.dll
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\from_zero_to_hero.pdb
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\from_zero_to_hero.genruntimeconfig.cache
+C:\Users\oscar\Desktop\oscar\proyectos\coding-playground\C#\from_zero_to_hero\obj\Debug\net9.0\ref\from_zero_to_hero.dll

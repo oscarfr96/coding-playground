@@ -1,0 +1,45 @@
+# Dependencias
+node_modules/
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dist
+/dist
+/build
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Firebase
+.firebase/
+.firebaserc
+firebase-debug.log
+
+# Vite
+.vite/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Proyecto específico
+functions/lib/
+functions/node_modules/
+.next/

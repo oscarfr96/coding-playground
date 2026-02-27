@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "from_zero_to_hero/1.0.0": {
+        "runtime": {
+          "from_zero_to_hero.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "from_zero_to_hero/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
