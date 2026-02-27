@@ -1,0 +1,19 @@
+# Node / React
+node_modules/
+frontend/build/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Chroma DB
+backend/chroma/
+
+# Config
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
