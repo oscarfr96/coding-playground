@@ -26,7 +26,7 @@ export default function TechStack() {
         {
             category: t.techStack.databases,
             icon: Database,
-            accent: { iconBg: 'bg-brand-lavender/15', iconText: 'text-brand-lavender', cardBorder: 'border-t-2 border-t-[#8892C9]' },
+            accent: { iconBg: 'bg-apple-border/20', iconText: 'text-apple-dark', cardBorder: 'border-t-2 border-t-apple-border' },
             skills: ['SQL Server', 'MongoDB', 'Firebase', 'PostgreSQL']
         },
         {
