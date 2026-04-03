@@ -33,7 +33,7 @@ export default function Projects() {
 
     return (
         <section id="projects" className="space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 fill-mode-both">
-            <h2 className="text-2xl font-bold tracking-tight text-apple-dark">{t.projects.title}</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-apple-dark border-l-[3px] border-brand-lavender pl-3">{t.projects.title}</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {projects.map((project) => {
@@ -44,7 +44,7 @@ export default function Projects() {
                                     {project.title}
                                 </h3>
                                 {project.link && (
-                                    <ArrowUpRight className="w-5 h-5 text-apple-gray group-hover:text-apple-dark transition-colors flex-shrink-0" />
+                                    <ArrowUpRight className="w-5 h-5 text-apple-gray group-hover:text-brand-green transition-colors flex-shrink-0" />
                                 )}
                             </div>
                             <p className="text-apple-gray leading-relaxed mb-6 text-sm">
@@ -63,7 +63,7 @@ export default function Projects() {
                                     target="_blank"
                                     rel="noreferrer"
                                     onClick={(e) => e.stopPropagation()}
-                                    className="inline-flex items-center gap-1.5 text-xs text-apple-gray hover:text-apple-dark transition-colors"
+                                    className="inline-flex items-center gap-1.5 text-xs text-apple-gray hover:text-brand-green transition-colors"
                                 >
                                     <Github className="w-3.5 h-3.5" />
                                     <span>Source code</span>
@@ -79,7 +79,7 @@ export default function Projects() {
                                 href={project.link}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="group relative p-8 rounded-2xl border border-apple-border/40 bg-white/50 hover:bg-white/80 transition-all hover:shadow-sm block"
+                                className="group relative p-8 rounded-2xl border border-apple-border/40 bg-white/50 hover:bg-white/80 transition-all hover:shadow-[0_-3px_0_0_#8892C9,0_1px_3px_0_rgba(0,0,0,0.05)] block"
                             >
                                 {inner}
                             </a>
@@ -87,7 +87,7 @@ export default function Projects() {
                     }
 
                     return (
-                        <div key={project.title} className="group relative p-8 rounded-2xl border border-apple-border/40 bg-white/50 hover:bg-white/80 transition-all hover:shadow-sm">
+                        <div key={project.title} className="group relative p-8 rounded-2xl border border-apple-border/40 bg-white/50 hover:bg-white/80 transition-all hover:shadow-[0_-3px_0_0_#8892C9,0_1px_3px_0_rgba(0,0,0,0.05)]">
                             {inner}
                         </div>
                     );

@@ -32,7 +32,7 @@ export default function Layout({ children }: LayoutProps) {
                             href="https://github.com/oscarfr96"
                             target="_blank"
                             rel="noreferrer"
-                            className="hidden sm:flex items-center gap-2 text-sm font-medium text-apple-dark bg-apple-border/20 hover:bg-apple-border/40 transition-colors px-4 py-2 rounded-full"
+                            className="hidden sm:flex items-center gap-2 text-sm font-medium text-apple-dark bg-apple-border/20 hover:bg-apple-border/40 hover:text-brand-green transition-colors px-4 py-2 rounded-full"
                         >
                             <Github className="w-4 h-4" />
                             <span>GitHub</span>

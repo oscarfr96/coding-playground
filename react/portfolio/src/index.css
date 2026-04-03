@@ -8,6 +8,12 @@
   --color-apple-gray: #86868b;
   --color-apple-border: #d2d2d7;
 
+  /* Brand palette */
+  --color-brand-green: #69C292;
+  --color-brand-pink: #EF5693;
+  --color-brand-lavender: #8892C9;
+  --color-brand-slate: #5D5C71;
+
   /* Custom animations */
   --animate-blob: blob 7s infinite;
 

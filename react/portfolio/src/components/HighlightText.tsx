@@ -23,7 +23,7 @@ export default function HighlightText({ text, keywords }: HighlightTextProps) {
                 return (
                     <span
                         key={i}
-                        className="font-medium text-apple-dark bg-apple-border/40 px-1 rounded-sm"
+                        className="font-medium text-apple-dark bg-brand-lavender/15 px-1 rounded-sm"
                     >
                         {part}
                     </span>

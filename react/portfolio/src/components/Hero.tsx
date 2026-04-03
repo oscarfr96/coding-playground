@@ -59,7 +59,7 @@ export default function Hero() {
                     <div className="pt-8">
                         <a
                             href="#projects"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-apple-dark text-white rounded-full font-medium shadow-sm hover:shadow-md hover:bg-black transition-all hover:-translate-y-0.5"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-green text-white rounded-full font-medium shadow-sm hover:shadow-md hover:bg-brand-green/90 transition-all hover:-translate-y-0.5"
                         >
                             {t.hero.projectsBtn}
                             <ArrowDown className="w-4 h-4 animate-bounce" />

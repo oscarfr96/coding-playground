@@ -43,12 +43,12 @@ export default function Experience() {
 
     return (
         <section className="space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 fill-mode-both">
-            <h2 className="text-2xl font-bold tracking-tight text-apple-dark">{t.experience.title}</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-apple-dark border-l-[3px] border-brand-lavender pl-3">{t.experience.title}</h2>
 
             <div className="space-y-12 pl-4 md:pl-0 border-l-2 md:border-l-0 border-apple-border/30">
                 {experiences.map((exp, index) => (
                     <div key={index} className="relative md:grid md:grid-cols-4 gap-8 group">
-                        <div className="absolute w-3 h-3 bg-white border-2 border-apple-gray rounded-full -left-[23px] md:hidden top-1.5 group-hover:border-apple-dark transition-colors" />
+                        <div className="absolute w-3 h-3 bg-white border-2 border-apple-gray rounded-full -left-[23px] md:hidden top-1.5 group-hover:border-brand-green group-hover:bg-brand-green/10 transition-colors" />
 
                         <div className="md:col-span-1 mb-2 md:mb-0 text-sm text-apple-gray font-medium pt-1">
                             {exp.period}
