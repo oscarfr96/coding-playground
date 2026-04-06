@@ -8,8 +8,8 @@ export default function Projects() {
         {
             title: t.projects.textSage.title,
             description: t.projects.textSage.description,
-            tags: ['React', '.NET Core', 'Whisper ASR', 'Docker', 'Azure', 'Tailwind CSS'],
-            link: 'https://ts-audio-transcriber.vercel.app/login/demo',
+            tags: ['React', 'Vite', '.NET 8', 'Whisper', 'Firebase', 'Docker', 'Azure', 'Vercel', 'GitHub Actions'],
+            link: 'https://gredio-audio-hub.vercel.app/login/demo',
         },
         {
             title: t.projects.weddingInvitation.title,
