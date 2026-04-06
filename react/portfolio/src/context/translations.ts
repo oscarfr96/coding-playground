@@ -35,8 +35,8 @@ export const en = {
     projects: {
         title: "Personal Projects",
         textSage: {
-            title: "Text Sage",
-            description: "Co-developed a speaker diarization platform based on the Whisper encoder, extended with LSTM and embedding layers for multi-speaker classification. Built the full stack including an embeddings API and a React + Tailwind web app to manage API keys, usage, and diarizations. Deployed on Vercel."
+            title: "Gredio Audio Hub",
+            description: "Full-stack audio platform with transcription and speaker diarization, co-developed with a friend. The transcription engine uses an optimized Whisper model fine-tuned for Spanish, delivering high accuracy on real-world recordings. The diarization model extends the Whisper encoder with LSTM and embedding layers for multi-speaker classification, achieving performance comparable to PyAnnote — running via a serverless Firebase Cloud Functions pipeline. Built with React + Vite, .NET 8 Clean Architecture, and Firebase (Auth, Firestore, Storage). Containerized with Docker, hosted on Vercel and Azure App Service, with CI/CD fully automated via GitHub Actions."
         },
         weddingInvitation: {
             title: "Wedding Invitation",
@@ -93,8 +93,8 @@ export const es = {
     projects: {
         title: "Proyectos Personales",
         textSage: {
-            title: "Text Sage",
-            description: "Plataforma de diarización de hablantes co-desarrollada basada en el codificador de Whisper, extendida con capas LSTM y de embeddings para clasificación multi-hablante. Desarrollé el stack completo incluyendo una API de embeddings y una app web en React + Tailwind para gestionar claves API, uso y diarizaciones. Desplegada en Vercel."
+            title: "Gredio Audio Hub",
+            description: "Co-desarrollado con un amigo: sistema de diarización de hablantes basado en el encoder de Whisper, extendido con capas LSTM y de embeddings para clasificación multi-hablante, alcanzando un rendimiento comparable a PyAnnote. Stack completo construido alrededor: frontend en React + Vite, backend en .NET 8 Clean Architecture y Firebase (Auth, Firestore, Storage). El motor de transcripción usa Whisper optimizado para español. La diarización corre en un pipeline serverless con Firebase Cloud Functions. Contenerizado con Docker, desplegado en Vercel y Azure App Service, con CI/CD automatizado mediante GitHub Actions."
         },
         weddingInvitation: {
             title: "Invitación de Boda",
