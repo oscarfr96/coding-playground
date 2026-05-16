@@ -5,7 +5,7 @@ export const en = {
     },
     hero: {
         greeting: "Hi, I'm",
-        bio: "Backend-focused Full Stack Engineer with 9+ years of experience building distributed systems and scalable APIs. Specialized in .NET Core, microservices architecture, and containerized deployments — with a strong focus on AI-assisted development using Claude Code agents and MCP workflows.",
+        bio: "Full Stack Engineer, backend-focused. I build distributed systems, scalable APIs, and containerized infrastructure — things meant to last in production. With an eye for clean, minimalist design and a soft spot for well-crafted frontend microsites. Genuinely curious, always learning. AI-powered across all my workflows: agentic pipelines, MCP integrations, and LLM tooling woven into how I build.",
         location: "Madrid, Spain",
         projectsBtn: "View Projects"
     },
@@ -34,21 +34,24 @@ export const en = {
     },
     projects: {
         title: "Personal Projects",
-        textSage: {
-            title: "Gredio Audio Hub",
-            description: "Full-stack audio platform with transcription and speaker diarization, co-developed with a friend. The transcription engine uses an optimized Whisper model fine-tuned for Spanish, delivering high accuracy on real-world recordings. The diarization model extends the Whisper encoder with LSTM and embedding layers for multi-speaker classification, achieving performance comparable to PyAnnote — running via a serverless Firebase Cloud Functions pipeline. Built with React + Vite, .NET 8 Clean Architecture, and Firebase (Auth, Firestore, Storage). Containerized with Docker, hosted on Vercel and Azure App Service, with CI/CD fully automated via GitHub Actions."
-        },
-        weddingInvitation: {
-            title: "Wedding Invitation",
-            description: "Online wedding invitation built with React and TypeScript, fully responsive, using Firebase as the database for the guest list, with an admin panel for the couple. Hosted on Vercel."
-        },
-        kotlinApp: {
-            title: "Kotlin To Do App",
-            description: "Task management app built with Kotlin, Jetpack Compose, and Firebase. Features prioritization, time-organized views, an interactive calendar, and customizable themes. Includes a Figma-based UI mockup."
+        seeMore: "See more →",
+        modalAbout: "About",
+        modalRole: "What I built",
+        modalStack: "Stack",
+        modalDemo: "View demo",
+        gredio: {
+            title: "Gredio",
+            tagline: "Speaker diarization platform — from the model to the API",
+            about: "A friend and I built a custom EEND neural network from scratch: Whisper's audio encoder (multi-head attention transformer) paired with an LSTM-based decoder that classifies active speakers frame by frame across long-form audio. The model runs on ephemeral NVIDIA GPU VMs, spun up on demand and self-destructing when done.",
+            myRole: "I designed and built everything around it — a production FastAPI REST API on Cloud Run, a prepaid credit system backed by atomic Firestore transactions (reserve → charge → release, making double-spend structurally impossible), four authentication layers (SHA-256-hashed API keys, HS256 JWTs, short-lived admin session tokens, single-use internal VM tokens), and a React admin dashboard.",
+            highlights: "Async-first design · Cloud Scheduler watchdog auto-recovers stuck jobs and refunds credits · Sliding-window rate limiter · Multi-tenant with full GDPR delete"
         },
         portfolio: {
             title: "This Portfolio",
-            description: "Personal portfolio built with React 19, TypeScript, Vite, and Tailwind CSS v4. Features a bilingual interface (EN/ES), a clean Apple-inspired design system, and sections for experience, tech stack, and personal projects."
+            tagline: "The site you're on right now",
+            about: "Built with React 19, TypeScript, Vite, and Tailwind CSS v4.",
+            myRole: "Bilingual interface (EN/ES), Apple-inspired design system, and sections for experience, tech stack, and projects.",
+            highlights: ""
         }
     },
     footer: {
@@ -63,7 +66,7 @@ export const es = {
     },
     hero: {
         greeting: "Hola, soy",
-        bio: "Full Stack Engineer con enfoque en backend y más de 9 años de experiencia construyendo sistemas distribuidos y APIs escalables. Especializado en .NET Core, arquitectura de microservicios y despliegues con contenedores — con un fuerte enfoque en desarrollo asistido por IA con agentes de Claude Code y flujos MCP.",
+        bio: "Full Stack Engineer, con foco en backend. Construyo sistemas distribuidos, APIs escalables e infraestructura contenerizada — cosas pensadas para aguantar en producción. Con ojo para el diseño limpio y minimalista, y debilidad por los frontend microsites bien construidos. Genuinamente curioso, siempre aprendiendo. Con IA en todos mis flujos: pipelines agénticos, integraciones MCP y tooling con LLMs integrado en cómo construyo.",
         location: "Madrid, España",
         projectsBtn: "Ver Proyectos"
     },
@@ -92,21 +95,24 @@ export const es = {
     },
     projects: {
         title: "Proyectos Personales",
-        textSage: {
-            title: "Gredio Audio Hub",
-            description: "Co-desarrollado con un amigo: sistema de diarización de hablantes basado en el encoder de Whisper, extendido con capas LSTM y de embeddings para clasificación multi-hablante, alcanzando un rendimiento comparable a PyAnnote. Stack completo construido alrededor: frontend en React + Vite, backend en .NET 8 Clean Architecture y Firebase (Auth, Firestore, Storage). El motor de transcripción usa Whisper optimizado para español. La diarización corre en un pipeline serverless con Firebase Cloud Functions. Contenerizado con Docker, desplegado en Vercel y Azure App Service, con CI/CD automatizado mediante GitHub Actions."
-        },
-        weddingInvitation: {
-            title: "Invitación de Boda",
-            description: "Invitación de boda online construida con React y TypeScript, completamente responsive, usando Firebase como base de datos para la lista de invitados y con un panel de administración para la pareja. Alojada en Vercel."
-        },
-        kotlinApp: {
-            title: "App de Tareas en Kotlin",
-            description: "App de gestión de tareas construida con Kotlin, Jetpack Compose y Firebase. Incluye priorización, vistas organizadas por tiempo, calendario interactivo y temas personalizables. Acompañada de un mockup de UI en Figma."
+        seeMore: "Ver más →",
+        modalAbout: "Sobre el proyecto",
+        modalRole: "Lo que construí yo",
+        modalStack: "Stack",
+        modalDemo: "Ver demo",
+        gredio: {
+            title: "Gredio",
+            tagline: "Plataforma de diarización de hablantes — del modelo a la API",
+            about: "Un amigo y yo construimos una red neuronal EEND personalizada desde cero: el encoder de audio de Whisper (transformer con multi-head attention) combinado con un decoder basado en LSTM que clasifica hablantes activos frame a frame en audio de larga duración. El modelo corre en VMs GPU NVIDIA efímeras que se arrancan bajo demanda y se auto-destruyen al terminar.",
+            myRole: "Yo diseñé y construí todo lo que lo rodea — una API REST de producción con FastAPI en Cloud Run, un sistema de créditos prepago con transacciones atómicas de Firestore (reserva → cargo → liberación, haciendo el doble gasto estructuralmente imposible), cuatro capas de autenticación (API keys con hash SHA-256, JWTs HS256, tokens de sesión admin de corta duración, tokens internos de un solo uso por VM) y un panel de administración en React.",
+            highlights: "Diseño async-first · Watchdog en Cloud Scheduler recupera jobs atascados y reembolsa créditos · Rate limiter de ventana deslizante · Multi-tenant con borrado GDPR completo"
         },
         portfolio: {
             title: "Este Portfolio",
-            description: "Portfolio personal construido con React 19, TypeScript, Vite y Tailwind CSS v4. Interfaz bilingüe (ES/EN), sistema de diseño limpio inspirado en Apple y secciones de experiencia, tech stack y proyectos personales."
+            tagline: "La web en la que estás ahora mismo",
+            about: "Construido con React 19, TypeScript, Vite y Tailwind CSS v4.",
+            myRole: "Interfaz bilingüe (ES/EN), sistema de diseño inspirado en Apple y secciones de experiencia, tech stack y proyectos.",
+            highlights: ""
         }
     },
     footer: {

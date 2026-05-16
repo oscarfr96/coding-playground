@@ -45,6 +45,11 @@ body {
   color: var(--color-apple-dark);
 }
 
+@keyframes underline-draw {
+  from { background-size: 0% 2px; }
+  to   { background-size: 100% 2px; }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

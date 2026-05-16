@@ -15,13 +15,13 @@ export default function TechStack() {
             category: t.techStack.backend,
             icon: Server,
             accent: { iconBg: 'bg-brand-slate/15', iconText: 'text-brand-slate', cardBorder: 'border-t-2 border-t-[#5D5C71]' },
-            skills: ['.NET Core 7', '.NET Framework 4.8', 'C#', 'Node.js', 'ASP.NET Core']
+            skills: ['.NET Core 7', '.NET Framework 4.8', 'C#', 'Node.js', 'ASP.NET Core', 'Python']
         },
         {
             category: t.techStack.architecture,
             icon: Cloud,
             accent: { iconBg: 'bg-brand-green/15', iconText: 'text-brand-green', cardBorder: 'border-t-2 border-t-[#69C292]' },
-            skills: ['Docker', 'Kubernetes', 'Azure', 'Azure DevOps', 'GitHub Actions', 'Jenkins', 'Microservices', 'CI/CD']
+            skills: ['Docker', 'Kubernetes', 'Azure', 'Google Cloud', 'Azure DevOps', 'GitHub Actions', 'Jenkins', 'Microservices', 'CI/CD']
         },
         {
             category: t.techStack.databases,

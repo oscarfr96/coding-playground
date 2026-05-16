@@ -5,13 +5,11 @@ import HighlightText from './HighlightText';
 
 const BIO_KEYWORDS = [
     // EN
-    'Backend-focused', 'distributed systems', 'scalable APIs', '.NET Core',
-    'microservices architecture', 'containerized deployments', 'AI-assisted development',
-    'Claude Code agents', 'MCP workflows',
+    'backend-focused', 'distributed systems', 'scalable APIs', 'minimalist design', 'microsites',
+    'agentic pipelines', 'MCP integrations', 'LLM tooling',
     // ES
-    'enfoque en backend', 'sistemas distribuidos', 'APIs escalables',
-    'arquitectura de microservicios', 'despliegues con contenedores',
-    'desarrollo asistido por IA', 'agentes de Claude Code', 'flujos MCP',
+    'foco en backend', 'sistemas distribuidos', 'APIs escalables', 'diseño limpio y minimalista', 'microsites',
+    'pipelines agénticos', 'integraciones MCP', 'tooling con LLMs',
 ];
 
 export default function Hero() {
