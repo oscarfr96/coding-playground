@@ -1,60 +1,57 @@
-import { Layers, Server, Database, Cloud, Bot } from 'lucide-react';
+import { Layers, Server, Database, Cloud, Bot, FlaskConical } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import SectionHeading from './SectionHeading';
+
+interface CardStyle {
+    bg: string;
+    border: string;
+    icon: string;
+    shadow: string;
+}
+
+const STYLES: Record<string, CardStyle> = {
+    sky: { bg: 'bg-info-soft', border: 'border-info-bright', icon: 'text-info-strong', shadow: 'hover:shadow-[6px_6px_0_0_var(--color-info-bright)]' },
+    pink: { bg: 'bg-accent-soft', border: 'border-accent', icon: 'text-accent-strong', shadow: 'hover:shadow-[6px_6px_0_0_var(--color-accent)]' },
+    mint: { bg: 'bg-success-soft', border: 'border-success-bright', icon: 'text-success', shadow: 'hover:shadow-[6px_6px_0_0_var(--color-success-bright)]' },
+    yellow: { bg: 'bg-highlight-soft', border: 'border-highlight', icon: 'text-highlight-strong', shadow: 'hover:shadow-[6px_6px_0_0_var(--color-highlight)]' },
+    coral: { bg: 'bg-danger-soft', border: 'border-danger', icon: 'text-danger', shadow: 'hover:shadow-[6px_6px_0_0_var(--color-danger)]' },
+};
 
 export default function TechStack() {
     const { t } = useLanguage();
 
     const stack = [
-        {
-            category: t.techStack.frontend,
-            icon: Layers,
-            accent: { iconBg: 'bg-brand-lavender/15', iconText: 'text-brand-lavender', cardBorder: 'border-t-2 border-t-[#8892C9]' },
-            skills: ['React', 'TypeScript', 'Angular', 'Ionic', 'JavaScript', 'Tailwind CSS']
-        },
-        {
-            category: t.techStack.backend,
-            icon: Server,
-            accent: { iconBg: 'bg-brand-slate/15', iconText: 'text-brand-slate', cardBorder: 'border-t-2 border-t-[#5D5C71]' },
-            skills: ['.NET Core 7', '.NET Framework 4.8', 'C#', 'Node.js', 'ASP.NET Core', 'Python']
-        },
-        {
-            category: t.techStack.architecture,
-            icon: Cloud,
-            accent: { iconBg: 'bg-brand-green/15', iconText: 'text-brand-green', cardBorder: 'border-t-2 border-t-[#69C292]' },
-            skills: ['Docker', 'Kubernetes', 'Azure', 'Google Cloud', 'Azure DevOps', 'GitHub Actions', 'Jenkins', 'Microservices', 'CI/CD']
-        },
-        {
-            category: t.techStack.databases,
-            icon: Database,
-            accent: { iconBg: 'bg-apple-border/20', iconText: 'text-apple-dark', cardBorder: 'border-t-2 border-t-apple-border' },
-            skills: ['SQL Server', 'MongoDB', 'Firebase', 'PostgreSQL']
-        },
-        {
-            category: t.techStack.ai,
-            icon: Bot,
-            accent: { iconBg: 'bg-brand-pink/15', iconText: 'text-brand-pink', cardBorder: 'border-t-2 border-t-[#EF5693]' },
-            skills: ['Claude Code', 'GitHub Copilot', 'MCP', 'LLM APIs', 'Prompt Engineering', 'RAG', 'AI Agents']
-        }
+        { category: t.techStack.frontend, icon: Layers, style: STYLES.sky, skills: ['React', 'TypeScript', 'Angular', 'Ionic', 'JavaScript', 'Tailwind CSS'] },
+        { category: t.techStack.backend, icon: Server, style: STYLES.pink, skills: ['.NET Core', '.NET Framework 4.8', 'C#', 'Python', 'Entity Framework Core', 'OData', 'GraphQL', 'Identity Server', 'Node.js'] },
+        { category: t.techStack.architecture, icon: Cloud, style: STYLES.mint, skills: ['Docker', 'Kubernetes', 'Rancher', 'Azure', 'Google Cloud', 'Vercel', 'Azure DevOps', 'GitHub Actions', 'Jenkins', 'Microservices', 'CI/CD'] },
+        { category: t.techStack.databases, icon: Database, style: STYLES.yellow, skills: ['SQL Server', 'PostgreSQL', 'MongoDB', 'Redis', 'Firebase'] },
+        { category: t.techStack.ai, icon: Bot, style: STYLES.coral, skills: ['Claude Code', 'GitHub Copilot', 'MCP', 'LLM APIs', 'Prompt Engineering', 'RAG', 'AI Agents', 'Notion'] },
+        { category: t.techStack.testing, icon: FlaskConical, style: STYLES.sky, skills: ['xUnit', 'Moq', 'BDD · Gherkin', 'SonarQube'] },
     ];
 
     return (
-        <section className="space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both">
-            <h2 className="text-2xl font-bold tracking-tight text-apple-dark border-l-[3px] border-brand-lavender pl-3">{t.techStack.title}</h2>
+        <section className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both">
+            <SectionHeading>{t.techStack.title}</SectionHeading>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {stack.map((group) => {
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {stack.map((group, i) => {
                     const Icon = group.icon;
+                    const s = group.style;
+                    const rotate = i % 2 === 0 ? 'hover:rotate-[-0.5deg]' : 'hover:rotate-[0.5deg]';
                     return (
-                        <div key={group.category} className={`p-6 rounded-2xl border border-apple-border/40 ${group.accent.cardBorder} bg-white/50 hover:bg-white/80 transition-colors`}>
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className={`p-2 ${group.accent.iconBg} rounded-lg ${group.accent.iconText}`}>
-                                    <Icon className="w-5 h-5" />
+                        <div
+                            key={group.category}
+                            className={`rounded-[var(--radius-lg)] border-2 p-6 transition-[transform,box-shadow] duration-150 ease-[var(--ease-out)] hover:-translate-y-1 ${s.bg} ${s.border} ${s.shadow} ${rotate}`}
+                        >
+                            <div className="mb-4 flex items-center gap-3">
+                                <div className={`grid size-10 place-items-center rounded-full border-2 border-current bg-surface/70 ${s.icon}`}>
+                                    <Icon className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-apple-dark">{group.category}</h3>
+                                <h3 className="font-display text-lg font-semibold text-ink">{group.category}</h3>
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {group.skills.map((skill) => (
-                                    <span key={skill} className="px-3 py-1 bg-white border border-apple-border/50 text-xs font-medium text-apple-gray rounded-full">
+                                    <span key={skill} className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-ink-muted">
                                         {skill}
                                     </span>
                                 ))}

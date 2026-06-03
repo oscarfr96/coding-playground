@@ -1,38 +1,75 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  /* Defining subtle system colors for an Apple aesthetic */
-  --color-apple-light: #fbfbfd;
-  --color-apple-dark: #1d1d1f;
-  --color-apple-gray: #86868b;
-  --color-apple-border: #d2d2d7;
+  /* ── Tipografía (igual que Forge): Geist cuerpo, Fredoka display, JetBrains mono ── */
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Fredoka Variable", "Geist Variable", ui-rounded, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 
-  /* Brand palette */
-  --color-brand-green: #69C292;
-  --color-brand-pink: #EF5693;
-  --color-brand-lavender: #8892C9;
-  --color-brand-slate: #5D5C71;
+  /* ── Paleta pastel "Flower Boy" (marfil pálido + rosa/cielo/menta/girasol) ── */
+  --color-canvas: #fbf7ea;
+  --color-surface: #fffefb;
+  --color-surface-muted: #f5efdd;
+  --color-border: #eee7d2;
+  --color-border-strong: #ddd2b4;
 
-  /* Custom animations */
-  --animate-blob: blob 7s infinite;
+  --color-ink: #2f2a20;
+  --color-ink-muted: #6f674f;
+  --color-ink-subtle: #a69b78;
+
+  /* Rosa chicle */
+  --color-accent: #f78cb6;
+  --color-accent-press: #f173a4;
+  --color-accent-strong: #c43370;
+  --color-accent-soft: #fde2ee;
+  --color-accent-contrast: #41142a;
+
+  /* Azul cielo */
+  --color-info: #7fcae8;
+  --color-info-strong: #1f6e91;
+  --color-info-soft: #e3f4fb;
+  --color-info-bright: #8fd3ef;
+
+  /* Verde menta */
+  --color-success: #2c9466;
+  --color-success-soft: #e2f5ea;
+  --color-success-bright: #84d6a8;
+
+  /* Amarillo girasol */
+  --color-highlight: #f8cf5c;
+  --color-highlight-strong: #8a6210;
+  --color-highlight-soft: #fcefbf;
+
+  /* Coral suave */
+  --color-danger: #e9604a;
+  --color-danger-soft: #fde4dd;
+
+  /* ── Radios redondeados (bubbly) ── */
+  --radius-sm: 10px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* ── Alias retro-compatibles (por si queda alguna clase antigua) ── */
+  --color-apple-light: #fbf7ea;
+  --color-apple-dark: #2f2a20;
+  --color-apple-gray: #6f674f;
+  --color-apple-border: #ddd2b4;
+  --color-brand-green: #84d6a8;
+  --color-brand-pink: #f78cb6;
+  --color-brand-lavender: #7fcae8;
+  --color-brand-slate: #6f674f;
+
+  /* ── Animación blob (reusada para el hero, ahora pastel) ── */
+  --animate-blob: blob 8s infinite;
 
   @keyframes blob {
-    0% {
-      transform: translate(0px, 0px) scale(1);
-    }
-
-    33% {
-      transform: translate(30px, -50px) scale(1.1);
-    }
-
-    66% {
-      transform: translate(-20px, 20px) scale(0.9);
-    }
-
-    100% {
-      transform: translate(0px, 0px) scale(1);
-    }
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(24px, -34px) scale(1.08); }
+    66% { transform: translate(-18px, 16px) scale(0.94); }
+    100% { transform: translate(0px, 0px) scale(1); }
   }
 }
 
@@ -41,8 +78,26 @@ html {
 }
 
 body {
-  background-color: var(--color-apple-light);
-  color: var(--color-apple-dark);
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 @keyframes underline-draw {

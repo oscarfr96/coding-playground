@@ -7,13 +7,15 @@ function escapeRegex(str: string) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-const COLORS = ['#8892C9', '#69C292', '#EF5693'];
+const COLORS = ['#8fd3ef', '#84d6a8', '#f78cb6'];
 
 export default function HighlightText({ text, keywords }: HighlightTextProps) {
     if (!keywords.length) return <>{text}</>;
 
     const sorted = [...keywords].sort((a, b) => b.length - a.length);
-    const pattern = new RegExp(`(${sorted.map(escapeRegex).join('|')})`, 'gi');
+    // Letter boundaries so short keywords (e.g. "IA"/"AI") don't match inside
+    // words like "potenciado" or "Spain".
+    const pattern = new RegExp(`(?<!\\p{L})(${sorted.map(escapeRegex).join('|')})(?!\\p{L})`, 'giu');
     const parts = text.split(pattern);
 
     let keywordCount = 0;
@@ -29,7 +31,7 @@ export default function HighlightText({ text, keywords }: HighlightTextProps) {
                 return (
                     <span
                         key={i}
-                        className="font-medium text-apple-dark"
+                        className="font-medium text-ink"
                         style={{
                             backgroundImage: `linear-gradient(${color}, ${color})`,
                             backgroundSize: '0% 2px',

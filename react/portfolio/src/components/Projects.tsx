@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import SectionHeading from './SectionHeading';
+import HighlightText from './HighlightText';
 
 interface ProjectMeta {
     id: 'gredio' | 'portfolio';
     cardTags: string[];
     allTags: string[];
+    keywords: string[];
     link?: string;
 }
 
@@ -13,22 +16,27 @@ const PROJECTS: ProjectMeta[] = [
     {
         id: 'gredio',
         cardTags: ['Python', 'FastAPI', 'PyTorch', 'React'],
-        allTags: ['Python', 'FastAPI', 'PyTorch', 'Google Cloud Run', 'Firestore', 'Compute Engine (GPU)', 'React', 'TypeScript', 'Vite', 'Vercel'],
+        allTags: ['Python', 'FastAPI', 'PyTorch', 'Google Cloud Run', 'Compute Engine (GPU)', 'Firestore', 'Cloud Storage', 'Docker', 'React', 'TypeScript', 'Vite', 'Vercel'],
+        keywords: [
+            // EN
+            'speaker diarization', 'EEND model', 'Whisper-style audio encoder', 'bidirectional GRU', 'whole platform',
+            // ES
+            'diarización de hablantes', 'modelo EEND', 'encoder de audio estilo Whisper', 'GRU bidireccional', 'toda la plataforma',
+        ],
         link: 'https://gredio-landing-page.vercel.app/',
     },
     {
         id: 'portfolio',
         cardTags: ['React 19', 'TypeScript', 'Tailwind CSS v4'],
         allTags: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS v4'],
+        keywords: ['React 19', 'TypeScript', 'Tailwind CSS v4'],
     },
 ];
 
 function Tag({ label, muted }: { label: string; muted?: boolean }) {
     return (
-        <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${
-            muted
-                ? 'bg-apple-border/8 text-apple-dark/50'
-                : 'bg-apple-border/10 text-apple-dark/80'
+        <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+            muted ? 'bg-surface-muted text-ink-subtle' : 'bg-surface-muted text-ink-muted'
         }`}>
             {label}
         </span>
@@ -56,33 +64,32 @@ export default function Projects() {
                 id="projects"
                 className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 fill-mode-both"
             >
-                <h2 className="text-2xl font-bold tracking-tight text-apple-dark border-l-[3px] border-brand-lavender pl-3">
-                    {t.projects.title}
-                </h2>
+                <SectionHeading>{t.projects.title}</SectionHeading>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {PROJECTS.map((project) => {
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    {PROJECTS.map((project, i) => {
                         const pt = t.projects[project.id];
+                        const rotate = i % 2 === 0 ? 'hover:rotate-[-0.5deg]' : 'hover:rotate-[0.5deg]';
                         return (
                             <button
                                 key={project.id}
                                 onClick={() => setOpen(project)}
-                                className="group text-left p-6 rounded-2xl border border-apple-border/40 bg-white/50 hover:bg-white/80 transition-all hover:shadow-[0_-3px_0_0_#8892C9,0_1px_3px_0_rgba(0,0,0,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-lavender"
+                                className={`group rounded-[var(--radius-lg)] border-2 border-border bg-surface p-6 text-left transition-[transform,box-shadow] duration-150 ease-[var(--ease-out)] hover:-translate-y-1 hover:border-accent hover:shadow-[6px_6px_0_0_var(--color-accent)] focus-visible:outline-none ${rotate}`}
                             >
-                                <div className="flex items-start justify-between gap-3 mb-3">
-                                    <h3 className="text-lg font-semibold text-apple-dark group-hover:text-black transition-colors leading-tight">
+                                <div className="mb-3 flex items-start justify-between gap-3">
+                                    <h3 className="font-display text-lg font-semibold leading-tight text-ink">
                                         {pt.title}
                                     </h3>
-                                    <ArrowUpRight className="w-4 h-4 text-apple-gray/50 group-hover:text-brand-lavender transition-colors flex-shrink-0 mt-0.5" />
+                                    <ArrowUpRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-ink-subtle transition-colors group-hover:text-accent-strong" />
                                 </div>
-                                <p className="text-sm text-apple-gray mb-4 leading-snug">
+                                <p className="mb-4 text-sm leading-snug text-ink-muted">
                                     {pt.tagline}
                                 </p>
-                                <div className="flex items-end justify-between gap-3 mt-4">
+                                <div className="mt-4 flex items-end justify-between gap-3">
                                     <div className="flex flex-wrap gap-1.5">
                                         {project.cardTags.map((tag) => <Tag key={tag} label={tag} />)}
                                     </div>
-                                    <span className="text-xs font-medium text-brand-lavender whitespace-nowrap group-hover:underline flex-shrink-0">
+                                    <span className="flex-shrink-0 whitespace-nowrap text-xs font-semibold text-accent-strong group-hover:underline">
                                         {t.projects.seeMore}
                                     </span>
                                 </div>
@@ -96,56 +103,63 @@ export default function Projects() {
                 const pt = t.projects[open.id];
                 return (
                     <div
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200"
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4 backdrop-blur-sm animate-in fade-in duration-200"
                         onClick={() => setOpen(null)}
                     >
                         <div
-                            className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto bg-white rounded-2xl shadow-2xl border border-apple-border/30 animate-in zoom-in-95 fade-in duration-200"
+                            className="relative max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-[var(--radius-lg)] border-2 border-border bg-surface shadow-2xl animate-in zoom-in-95 fade-in duration-200"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Header */}
-                            <div className="flex items-start justify-between gap-4 px-7 pt-7 pb-5 border-b border-apple-border/20">
+                            <div className="flex items-start justify-between gap-4 border-b border-border px-7 pb-5 pt-7">
                                 <div>
-                                    <h3 className="text-xl font-bold text-apple-dark">{pt.title}</h3>
-                                    <p className="text-sm text-apple-gray mt-0.5">{pt.tagline}</p>
+                                    <h3 className="font-display text-xl font-bold text-ink">{pt.title}</h3>
+                                    <p className="mt-0.5 text-sm text-ink-muted">{pt.tagline}</p>
                                 </div>
                                 <button
                                     onClick={() => setOpen(null)}
-                                    className="p-1.5 rounded-lg text-apple-gray/60 hover:text-apple-dark hover:bg-apple-border/10 transition-colors flex-shrink-0"
+                                    className="flex-shrink-0 rounded-full p-1.5 text-ink-subtle transition-colors hover:bg-surface-muted hover:text-ink"
                                     aria-label="Close"
                                 >
-                                    <X className="w-4 h-4" />
+                                    <X className="h-4 w-4" />
                                 </button>
                             </div>
 
-                            {/* Body */}
-                            <div className="px-7 py-6 space-y-5">
-                                {/* About */}
-                                <div>
-                                    <p className="text-xs font-semibold text-brand-lavender uppercase tracking-wider mb-2">
-                                        {t.projects.modalAbout}
-                                    </p>
-                                    <p className="text-sm text-apple-gray leading-relaxed">{pt.about}</p>
+                            <div className="space-y-5 px-7 py-6">
+                                {/* Stats de impacto */}
+                                <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+                                    {pt.stats.map((stat) => (
+                                        <div
+                                            key={stat.figure + stat.label}
+                                            className="rounded-[var(--radius)] border-2 border-border bg-surface-muted px-3 py-2.5 text-center"
+                                        >
+                                            <p className="font-display text-base font-bold leading-none text-accent-strong">
+                                                {stat.figure}
+                                            </p>
+                                            <p className="mt-1 text-[11px] leading-tight text-ink-subtle">
+                                                {stat.label}
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
 
-                                {/* My role */}
-                                <div>
-                                    <p className="text-xs font-semibold text-brand-lavender uppercase tracking-wider mb-2">
-                                        {t.projects.modalRole}
-                                    </p>
-                                    <p className="text-sm text-apple-gray leading-relaxed">{pt.myRole}</p>
-                                </div>
+                                {/* Intro */}
+                                <p className="text-sm leading-relaxed text-ink-muted">
+                                    <HighlightText text={pt.about} keywords={open.keywords} />
+                                </p>
 
-                                {/* Highlights */}
-                                {pt.highlights && (
-                                    <div className="p-3.5 rounded-xl bg-apple-border/5 border border-apple-border/20">
-                                        <p className="text-xs text-apple-gray/70 leading-relaxed">{pt.highlights}</p>
-                                    </div>
-                                )}
+                                {/* Lo que construí */}
+                                <ul className="space-y-1.5">
+                                    {pt.built.map((item, i) => (
+                                        <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-ink-muted">
+                                            <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
 
-                                {/* Full tech stack */}
+                                {/* Stack */}
                                 <div>
-                                    <p className="text-xs font-semibold text-brand-lavender uppercase tracking-wider mb-2">
+                                    <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-accent-strong">
                                         {t.projects.modalStack}
                                     </p>
                                     <div className="flex flex-wrap gap-1.5">
@@ -154,17 +168,16 @@ export default function Projects() {
                                 </div>
                             </div>
 
-                            {/* Footer */}
                             {open.link && (
                                 <div className="px-7 pb-7">
                                     <a
                                         href={open.link}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-lavender text-white text-sm font-medium hover:opacity-90 transition-opacity"
+                                        className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-contrast transition-all hover:-translate-y-0.5 hover:bg-accent-press"
                                     >
                                         {t.projects.modalDemo}
-                                        <ArrowUpRight className="w-3.5 h-3.5" />
+                                        <ArrowUpRight className="h-3.5 w-3.5" />
                                     </a>
                                 </div>
                             )}

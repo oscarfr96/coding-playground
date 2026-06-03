@@ -27,6 +27,16 @@ Single-page portfolio app built with React 19, TypeScript, Vite, and Tailwind CS
 
 **Layout** (`src/components/Layout.tsx`): sticky header with logo, CV download, GitHub link, and language toggle; main content area; footer with copyright and email.
 
-**Styling:** Tailwind CSS v4 with `@theme` configuration in `src/index.css`. Custom design tokens use an Apple-inspired palette (`apple-light`, `apple-dark`, `apple-gray`, `apple-border`) and a `blob` keyframe animation. Always use these tokens rather than raw colors.
+**Styling:** Tailwind CSS v4 with `@theme` configuration in `src/index.css`. Design language "Flower Boy"
+(pastel, marfil pálido). Fuentes: Geist (cuerpo, `font-sans`), Fredoka (display/títulos, `font-display`,
+aplicada a h1/h2/h3), JetBrains Mono (`font-mono`). Tokens semánticos: `canvas`, `surface`,
+`surface-muted`, `border`, `border-strong`, `ink`/`ink-muted`/`ink-subtle`, y acentos pastel
+`accent` (rosa), `info` (cielo), `success` (menta), `highlight` (girasol) con variantes
+`-soft`/`-strong`/`-bright`/`-press`/`-contrast`. Usa SIEMPRE estos tokens, no colores crudos.
+Patrón visual: tarjetas "pegatina" (`border-2` + `hover:shadow-[6px_6px_0_0_...]` + ligera rotación),
+botones pill, separadores ondulados (`components/WavyDivider.tsx`) y `components/SectionHeading.tsx`
+para títulos de sección. `components/HighlightText.tsx` subraya palabras clave (recibe `text` + `keywords`)
+con una animación `underline-draw` definida en `index.css`. Se mantienen alias `apple-*`/`brand-*` por
+compatibilidad, pero el código nuevo usa los tokens semánticos.
 
 **Static assets:** `src/assets/` holds `profile.png` and `logo-oscarfraile.png` imported directly into components. A CV PDF is expected at `public/cv-oscar-fraile.pdf` (referenced in translations).

@@ -1,89 +1,100 @@
-import { Mail, MapPin, ArrowDown } from 'lucide-react';
-import profileImg from '../assets/profile.png';
+import { ArrowDown, Github, MapPin } from 'lucide-react';
+import profileImg from '../assets/oscar-cutout.png';
 import { useLanguage } from '../context/LanguageContext';
 import HighlightText from './HighlightText';
 
 const BIO_KEYWORDS = [
     // EN
-    'backend-focused', 'distributed systems', 'scalable APIs', 'minimalist design', 'microsites',
-    'agentic pipelines', 'MCP integrations', 'LLM tooling',
+    'Product-minded', 'scalable systems', 'AI',
     // ES
-    'foco en backend', 'sistemas distribuidos', 'APIs escalables', 'diseño limpio y minimalista', 'microsites',
-    'pipelines agénticos', 'integraciones MCP', 'tooling con LLMs',
+    'mentalidad de producto', 'sistemas seguros y escalables', 'IA',
+];
+
+const CHIP_TONES = [
+    'bg-accent-soft text-accent-strong border-accent',
+    'bg-info-soft text-info-strong border-info-bright',
+    'bg-success-soft text-success border-success-bright',
+    'bg-highlight-soft text-highlight-strong border-highlight',
 ];
 
 export default function Hero() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+
+    const specialties =
+        language === 'es'
+            ? ['Arquitectura de software', 'Sistemas distribuidos', 'DevOps · CI/CD', 'IA · LLMs']
+            : ['Software Architecture', 'Distributed Systems', 'DevOps · CI/CD', 'AI · LLMs'];
 
     return (
-        <section className="animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12 w-full">
+        <section className="py-8 animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
+            {/* Tarjeta-carnet: una sola pegatina horizontal */}
+            <div className="group relative mx-auto max-w-3xl -rotate-[0.5deg] rounded-[var(--radius-xl)] border-2 border-border-strong bg-surface p-6 shadow-[8px_8px_0_0_var(--color-info-bright)] transition-transform duration-300 ease-out hover:rotate-0 sm:p-8">
+                {/* "Agujero" del carnet, guiño de credencial */}
+                <span className="absolute left-1/2 top-3 h-1.5 w-10 -translate-x-1/2 rounded-full bg-border-strong" />
 
-                {/* Left Column: Text and Intro */}
-                <div className="flex-1 space-y-6 md:space-y-8">
-                    {/* Header with inline relative avatar for mobile */}
-                    <div className="flex items-center justify-between gap-4 md:block">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-apple-dark text-balance leading-tight">
-                            {t.hero.greeting} <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-apple-dark to-apple-gray/60">Óscar.</span>
+                {/* Identidad: foto + nombre/rol/tagline */}
+                <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-start sm:text-left">
+                    <img
+                        src={profileImg}
+                        alt={t.hero.name}
+                        className="h-28 w-28 shrink-0 -rotate-3 rounded-[var(--radius-lg)] border-2 border-surface bg-info-soft object-cover object-top shadow-[4px_4px_0_0_var(--color-accent)] transition-transform duration-300 ease-out group-hover:rotate-0 sm:h-32 sm:w-32"
+                    />
+
+                    <div className="min-w-0">
+                        <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+                            {t.hero.name}
                         </h1>
 
-                        {/* Mobile Avatar (Hidden on Desktop) */}
-                        <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 md:hidden">
-                            <div className="absolute top-0 -left-2 w-20 h-20 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob"></div>
-                            <div className="absolute top-0 -right-2 w-20 h-20 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob" style={{ animationDelay: '2s' }}></div>
-                            <div className="absolute -bottom-2 left-2 w-20 h-20 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob" style={{ animationDelay: '4s' }}></div>
-                            <div className="relative w-full h-full rounded-full overflow-hidden border-[3px] border-white shadow-sm">
-                                <img src={profileImg} alt="Óscar Fraile" className="w-full h-full object-cover" />
-                            </div>
-                        </div>
+                        <p className="mt-1.5 font-mono text-sm font-medium text-info-strong">
+                            {t.hero.role}
+                        </p>
+
+                        <p className="mt-1 inline-flex items-center gap-1.5 font-mono text-xs text-ink-subtle">
+                            <MapPin className="h-3.5 w-3.5" />
+                            {t.hero.location}
+                        </p>
+
+                        <p className="mt-4 text-pretty text-base leading-relaxed text-ink-muted">
+                            <HighlightText text={t.hero.tagline} keywords={BIO_KEYWORDS} />
+                        </p>
+                    </div>
+                </div>
+
+                {/* Perforación del carnet */}
+                <div className="my-6 border-t-2 border-dashed border-border-strong" />
+
+                {/* Pastillas de especialidad + CTAs */}
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
+                        {specialties.map((label, i) => (
+                            <span
+                                key={label}
+                                className={`rounded-full border-2 px-3 py-1 text-xs font-semibold ${CHIP_TONES[i % CHIP_TONES.length]}`}
+                            >
+                                {label}
+                            </span>
+                        ))}
                     </div>
 
-                    <p className="text-xl md:text-2xl text-apple-gray font-light max-w-2xl text-balance leading-relaxed">
-                        <HighlightText text={t.hero.bio} keywords={BIO_KEYWORDS} />
-                    </p>
-
-                    <div className="flex flex-wrap gap-6 pt-4 text-sm font-medium text-apple-gray">
-                        <div className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4" />
-                            <span>{t.hero.location}</span>
-                        </div>
-                        <a href="mailto:oscar.fm.96@gmail.com" className="flex items-center gap-2 hover:text-apple-dark transition-colors">
-                            <Mail className="w-4 h-4" />
-                            <span>oscar.fm.96@gmail.com</span>
-                        </a>
-                    </div>
-
-                    <div className="pt-8">
+                    <div className="flex shrink-0 flex-wrap items-center justify-center gap-3">
                         <a
                             href="#projects"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-green text-white rounded-full font-medium shadow-sm hover:shadow-md hover:bg-brand-green/90 transition-all hover:-translate-y-0.5"
+                            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-contrast shadow-sm shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-press"
                         >
                             {t.hero.projectsBtn}
-                            <ArrowDown className="w-4 h-4 animate-bounce" />
+                            <ArrowDown className="h-4 w-4" />
+                        </a>
+                        <a
+                            href="https://github.com/oscarfr96"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border-2 border-border bg-surface px-5 py-2.5 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:bg-surface-muted"
+                        >
+                            <Github className="h-4 w-4" />
+                            GitHub
                         </a>
                     </div>
                 </div>
-
-                {/* Right Column: Desktop Avatar (Hidden on Mobile) */}
-                <div className="hidden md:flex justify-end items-center md:w-1/3 lg:w-2/5">
-                    <div className="relative w-64 h-64 lg:w-80 lg:h-80 flex-shrink-0">
-                        {/* Larger background color blobs for animation */}
-                        <div className="absolute top-0 -left-6 w-56 h-56 lg:w-72 lg:h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
-                        <div className="absolute top-0 -right-6 w-56 h-56 lg:w-72 lg:h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
-                        <div className="absolute -bottom-8 left-8 w-56 h-56 lg:w-72 lg:h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '4s' }}></div>
-
-                        {/* Profile Image container */}
-                        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl transition-transform duration-700 hover:scale-[1.02]">
-                            <img
-                                src={profileImg}
-                                alt="Óscar Fraile"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
     );
