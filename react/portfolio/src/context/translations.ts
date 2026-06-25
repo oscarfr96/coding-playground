@@ -6,7 +6,7 @@ export const en = {
     hero: {
         greeting: "Hi, I'm",
         name: "Óscar Fraile",
-        role: "Full Stack Engineer",
+        role: "Software Engineer",
         tagline: "Product-minded builder crafting secure, scalable systems meant to last. Endlessly curious and supercharged by AI across my entire workflow.",
         bio: "Full Stack Engineer, backend-focused. I design distributed systems, scalable APIs, and containerized infrastructure built to last in production — always with an eye for clean, minimalist design and a soft spot for well-crafted microsites. Genuinely curious and always learning, I weave AI into how I build: agentic pipelines, MCP integrations, and LLM tooling.",
         location: "Madrid, Spain",
@@ -99,6 +99,23 @@ export const en = {
                 "React admin/client dashboard (TanStack Query, Zustand, i18n) and the marketing landing page — both on Vercel."
             ]
         },
+        worldCup: {
+            title: "2026 World Cup Predictor",
+            tagline: "Match predictions for the 2026 World Cup, with an honest track record",
+            stats: [
+                { figure: "Poisson GLM", label: "two-phase model" },
+                { figure: "Dixon-Coles", label: "scoreline correction" },
+                { figure: "FastAPI", label: "REST backend" },
+                { figure: "Daily cron", label: "GitHub Actions" }
+            ],
+            about: "An open predictor for every 2026 World Cup match: favorite, expected goals, 1X2 probabilities, and the most likely scorelines — plus an honest track record that freezes each prediction before kickoff and compares it to the real result. The model runs in two phases: a Poisson GLM is pre-trained on recent international matches so it starts the tournament without a cold start, then a second Poisson GLM learns from the World Cup's own goals and blends with the prior via shrinkage as more matches are played.",
+            built: [
+                "Two-phase Poisson GLM: a pre-trained prior from international matches, blended with in-tournament learning via shrinkage as more games are played.",
+                "Dixon-Coles correction for low-scoring matches and a full scoreline matrix to derive 1X2 probabilities and favorites.",
+                "FastAPI backend on Render with a JSON cache, recomputed once a day via a GitHub Actions cron, plus per-IP rate limiting with slowapi.",
+                "React + Vite + Tailwind frontend on Vercel, with a track record persisted in Vercel Blob comparing frozen predictions to real results."
+            ]
+        },
         portfolio: {
             title: "This Portfolio",
             tagline: "The site you're on right now",
@@ -127,7 +144,7 @@ export const es = {
     hero: {
         greeting: "Hola, soy",
         name: "Óscar Fraile",
-        role: "Full Stack Engineer",
+        role: "Software Engineer",
         tagline: "Constructor con mentalidad de producto, creando sistemas seguros y escalables hechos para durar. Infinitamente curioso y potenciado por la IA en todo mi flujo de trabajo.",
         bio: "Full Stack Engineer con foco en backend. Diseño sistemas distribuidos, APIs escalables e infraestructura contenerizada, pensados para durar en producción — siempre con ojo para el diseño limpio y minimalista y debilidad por los microsites bien construidos. Genuinamente curioso y en constante aprendizaje, integro la IA en mi forma de construir: pipelines agénticos, integraciones MCP y tooling con LLMs.",
         location: "Madrid, España",
@@ -218,6 +235,23 @@ export const es = {
                 "Sistema de crédito prepago con transacciones atómicas de Firestore y cuotas de minutos por API key.",
                 "Auth por capas (API keys, JWT, tokens de admin y de VM de un solo uso), webhooks con reintentos/backoff y un watchdog en Cloud Scheduler que marca jobs atascados y reembolsa créditos.",
                 "Dashboard de admin/cliente en React (TanStack Query, Zustand, i18n) y la landing de marketing — ambos en Vercel."
+            ]
+        },
+        worldCup: {
+            title: "Predictor Mundial 2026",
+            tagline: "Predicciones de los partidos del Mundial 2026, con registro honesto de aciertos",
+            stats: [
+                { figure: "GLM de Poisson", label: "modelo en dos fases" },
+                { figure: "Dixon-Coles", label: "corrección de marcadores" },
+                { figure: "FastAPI", label: "backend REST" },
+                { figure: "Cron diario", label: "GitHub Actions" }
+            ],
+            about: "Predictor abierto de los partidos del Mundial 2026: favorito, goles esperados, probabilidades 1X2 y los marcadores más probables — además de un registro honesto de aciertos que congela cada predicción antes del partido y la compara con el resultado real. El modelo funciona en dos fases: un GLM de Poisson se pre-entrena con partidos internacionales recientes para llegar al torneo sin cold start, y un segundo GLM de Poisson aprende de los goles del propio Mundial, mezclándose con el prior mediante shrinkage a medida que se juegan más partidos.",
+            built: [
+                "GLM de Poisson en dos fases: un prior pre-entrenado con partidos internacionales, mezclado con el aprendizaje del propio torneo mediante shrinkage a medida que se juegan partidos.",
+                "Corrección de Dixon-Coles para marcadores bajos y una matriz completa de marcadores para derivar probabilidades 1X2 y favoritos.",
+                "Backend FastAPI en Render con caché JSON, recalculado una vez al día mediante un cron de GitHub Actions, y rate limiting por IP con slowapi.",
+                "Frontend React + Vite + Tailwind en Vercel, con un registro de aciertos persistido en Vercel Blob que compara predicciones congeladas con resultados reales."
             ]
         },
         portfolio: {

@@ -5,7 +5,7 @@ import SectionHeading from './SectionHeading';
 import HighlightText from './HighlightText';
 
 interface ProjectMeta {
-    id: 'gredio' | 'portfolio';
+    id: 'gredio' | 'worldCup' | 'portfolio';
     cardTags: string[];
     allTags: string[];
     keywords: string[];
@@ -24,6 +24,18 @@ const PROJECTS: ProjectMeta[] = [
             'diarización de hablantes', 'modelo EEND', 'encoder de audio estilo Whisper', 'GRU bidireccional', 'toda la plataforma',
         ],
         link: 'https://gredio-landing-page.vercel.app/',
+    },
+    {
+        id: 'worldCup',
+        cardTags: ['Python', 'FastAPI', 'statsmodels', 'React'],
+        allTags: ['Python', 'FastAPI', 'statsmodels', 'SciPy', 'pandas', 'slowapi', 'Render', 'React', 'React Router', 'Vite', 'Tailwind CSS', 'Vercel', 'Vercel Blob', 'GitHub Actions'],
+        keywords: [
+            // EN
+            'Poisson GLM', 'shrinkage', 'Dixon-Coles', 'track record',
+            // ES
+            'GLM de Poisson', 'Dixon-Coles', 'registro honesto de aciertos',
+        ],
+        link: 'https://oscar-wc-predictor.vercel.app/',
     },
     {
         id: 'portfolio',

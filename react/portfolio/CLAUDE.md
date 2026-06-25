@@ -19,10 +19,11 @@ Single-page portfolio app built with React 19, TypeScript, Vite, and Tailwind CS
 
 **Internationalization:** All UI strings live in `src/context/translations.ts` as two exported objects (`en`, `es`). `LanguageContext.tsx` exposes a `useLanguage()` hook that returns `{ t, language, toggleLanguage }`. Every component gets translated strings via `const { t } = useLanguage()` — never hardcode UI text.
 
-**Page structure** (`src/App.tsx`): sections rendered top-to-bottom inside `<Layout>`:
+**Page structure** (`src/App.tsx`): sections rendered top-to-bottom inside `<Layout>`, each separated by a `<WavyDivider>` (color set per-section via the `text-*` class):
 - `Hero` — intro with profile image and contact links
 - `Experience` — professional timeline
 - `TechStack` — categorized skill badges
+- `Education` — academic background
 - `Projects` — personal project cards
 
 **Layout** (`src/components/Layout.tsx`): sticky header with logo, CV download, GitHub link, and language toggle; main content area; footer with copyright and email.
