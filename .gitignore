@@ -24,6 +24,9 @@ node_modules/
 dist/
 .vite/
 
+# ── Zona privada: trabajo en curso que nunca sube ─────────
+projects/
+
 # ── Entorno y sistema ─────────────────────────────────────
 .env
 .env.local
