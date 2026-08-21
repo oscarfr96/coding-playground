@@ -33,10 +33,8 @@ f1-race-predictor/
 │   ├── raw/              # Datos crudos de FastF1 (no se suben)
 │   └── processed/        # Datasets limpios
 ├── modelos/              # Modelos entrenados (.joblib) con sus metadatos
-├── predicciones/         # Cada predicción, con su resultado real
 ├── notebooks/            # Exploración
-├── cache/                # Caché de FastF1 (no se sube)
-└── assets/               # Generación de gráficos e imágenes
+└── cache/                # Caché de FastF1 (no se sube)
 ```
 
 ## Puesta en marcha
@@ -46,10 +44,6 @@ python -m venv venv
 venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
-
-## Predicciones
-
-En `predicciones/` hay un fichero por Gran Premio, **escrito y commiteado antes de la carrera**, con el resultado real añadido después. Los fallos no se borran: el marcador honesto es el único que vale.
 
 ## Avisos
 

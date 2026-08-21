@@ -11,6 +11,3 @@ xgboost>=2.1
 # Utilidades
 joblib>=1.4
 jupyter>=1.0
-
-# Generación de carruseles (assets/plantillas)
-playwright>=1.40

@@ -1,7 +1,3 @@
-# ── Privado: no se publica ────────────────────────────────
-CURSO-ML-F1.md
-PLAN-CONTENIDO.md
-
 venv/
 __pycache__/
 *.pyc
@@ -9,6 +5,3 @@ cache/
 data/raw/
 .env
 .ipynb_checkpoints/
-
-# Los PNG generados se regeneran desde el JSON, no hace falta versionarlos
-assets/carruseles/_salida/
