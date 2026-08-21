@@ -1,31 +1,42 @@
-# 🏎️ F1 ML from Scratch
+# 🏎️ F1 Race Predictor
 
-Construyendo, desde cero y en público, un modelo de Machine Learning que predice el ganador de un Gran Premio de Fórmula 1.
+Un modelo de Machine Learning que estima la probabilidad de que cada piloto gane un Gran Premio de Fórmula 1, construido desde cero con [FastF1](https://docs.fastf1.dev/) y scikit-learn.
 
-Cada lección de este repositorio es un vídeo de la serie. Todo el código es el que escribo yo, en directo, aprendiendo.
+Es un proyecto de aprendizaje que voy publicando poco a poco: cada commit es un paso más del modelo.
 
-- 📚 **[Curso completo →](CURSO-ML-F1.md)** — 21 lecciones, de cargar el primer dato a un modelo desplegado.
-- 🗓️ **[Plan de contenido →](PLAN-CONTENIDO.md)** — calendario semanal de publicaciones (Sep–Dic 2026).
-- 📊 **[Marcador de predicciones →](predicciones/)** — cada predicción publicada, con su resultado real. Sin borrar los fallos.
+## El problema
+
+Predecir el ganador de una carrera es un problema de **clasificación binaria muy desbalanceado**:
+
+- **Una fila = un piloto en una carrera.** Con datos desde 2018 son unas 3.800 filas.
+- **El target es `¿ganó?`.** Solo el 5% de las filas son victorias: 1 de cada 20 pilotos.
+- **Solo se usa información previa a la carrera:** parrilla, tiempos de clasificación, forma reciente, fuerza del equipo, historial en el circuito, clima. Nada de lo que pasa el domingo.
+- **La partición respeta el tiempo:** se entrena con temporadas antiguas y se evalúa con las recientes. Nunca al azar.
+
+Para cada carrera, las probabilidades de los 20 pilotos se normalizan para que sumen 1, y el favorito es el de mayor probabilidad.
+
+## La métrica
+
+El *accuracy* aquí no sirve de nada: un modelo que diga "no gana nadie" acierta el 95%. La métrica de referencia es otra:
+
+> **De las N carreras evaluadas, ¿en cuántas el piloto con mayor probabilidad fue el ganador real?**
+
+Y siempre se compara contra un baseline honesto: **"gana el que sale desde la pole"**, que ya acierta alrededor del 40% de las carreras. Un modelo que no bata eso, sobra.
 
 ## Estructura
 
 ```
-f1-ml-series/
-├── CURSO-ML-F1.md        # El curso, lección a lección
-├── PLAN-CONTENIDO.md     # Calendario editorial
+f1-race-predictor/
 ├── requirements.txt
-├── cache/                # Caché de FastF1 (no se sube)
+├── src/                  # Descarga, limpieza, features, entrenamiento e inferencia
 ├── data/
-│   ├── raw/              # Datos crudos descargados (no se suben)
-│   └── processed/        # Datasets limpios (sí se suben, son pequeños)
-├── src/                  # El código de cada lección
+│   ├── raw/              # Datos crudos de FastF1 (no se suben)
+│   └── processed/        # Datasets limpios
+├── modelos/              # Modelos entrenados (.joblib) con sus metadatos
+├── predicciones/         # Cada predicción, con su resultado real
 ├── notebooks/            # Exploración
-├── modelos/              # Modelos entrenados (.joblib)
-├── predicciones/         # Predicción vs realidad, GP a GP
-└── assets/
-    ├── plantillas/       # Generador de carruseles + sistema visual de marca
-    └── carruseles/       # Un JSON por carrusel; los PNG salen en _salida/
+├── cache/                # Caché de FastF1 (no se sube)
+└── assets/               # Generación de gráficos e imágenes
 ```
 
 ## Puesta en marcha
@@ -34,18 +45,22 @@ f1-ml-series/
 python -m venv venv
 venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-playwright install chromium   # solo para generar los carruseles
 ```
 
-## Generar un carrusel de Instagram
+## Predicciones
 
-```bash
-python assets/plantillas/generar_carrusel.py assets/carruseles/s01_que_es_ml.json --png
-```
+En `predicciones/` hay un fichero por Gran Premio, **escrito y commiteado antes de la carrera**, con el resultado real añadido después. Los fallos no se borran: el marcador honesto es el único que vale.
 
-Salen los PNG a 1080×1350 en `assets/carruseles/_salida/`, con la identidad visual
-tomada del portfolio (paleta "Flower Boy", Fredoka + Geist + JetBrains Mono).
+## Avisos
 
-## Aviso honesto
+Esto **no es un sistema de apuestas** ni una predicción fiable, y no debe usarse como tal.
 
-Esto **no** es un sistema de apuestas ni una predicción fiable. Es un proyecto de aprendizaje. La F1 tiene ~24 carreras al año y 20 pilotos: hay muy pocos datos y muchísimo azar. Además, **2026 estrena reglamento**, así que un modelo entrenado con 2018–2025 va a fallar más de lo normal. Eso también forma parte del aprendizaje, y lo explicamos en la Lección 13.
+Hay razones de fondo para ser modesto con los resultados:
+
+1. **Muy pocos datos.** ~24 carreras al año, 20 pilotos, y solo ~190 victorias en ocho temporadas. Para ML eso es un dataset diminuto.
+2. **Mucho azar.** Safety cars, lluvia, abandonos y estrategia explican una parte del resultado que ningún modelo va a capturar.
+3. **2026 estrena reglamento.** Coches y motores nuevos: un modelo entrenado con 2018–2025 está prediciendo un deporte que ya no existe. Es un caso de manual de *distribution shift*, y es una de las cosas que quiero estudiar aquí.
+
+## Datos
+
+Los datos vienen de [FastF1](https://docs.fastf1.dev/), que accede a los datos públicos de cronometraje de la Fórmula 1. Este proyecto no está afiliado a la Fórmula 1 ni a ninguno de sus equipos.
