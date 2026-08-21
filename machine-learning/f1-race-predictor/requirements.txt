@@ -1,0 +1,16 @@
+# Núcleo
+fastf1>=3.6
+pandas>=2.2
+numpy>=1.26
+matplotlib>=3.8
+scikit-learn>=1.5
+
+# A partir de la Lección 16
+xgboost>=2.1
+
+# Utilidades
+joblib>=1.4
+jupyter>=1.0
+
+# Generación de carruseles (assets/plantillas)
+playwright>=1.40
