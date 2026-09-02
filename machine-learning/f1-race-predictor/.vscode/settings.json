@@ -1,0 +1,12 @@
+{
+  // El interprete del venv del proyecto. Ruta relativa: funciona para
+  // cualquiera que clone el repo y siga el README.
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/Scripts/python.exe",
+
+  // La terminal integrada activa el venv sola al abrirse.
+  "python.terminal.activateEnvInCurrentTerminal": true,
+
+  // Los scripts de src/ se ejecutan desde la raiz del proyecto,
+  // que es como estan escritas las rutas en config.py.
+  "python.terminal.executeInFileDir": false
+}
