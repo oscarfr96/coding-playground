@@ -44,11 +44,19 @@ def datos_de_una_carrera(anio, evento):
 
 
 def ya_descargadas(destino):
-    """Lo que ya hay en el CSV, descartando las carreras que salieron vacías."""
+    """Lo que ya hay en el CSV, descartando las carreras que salieron vacías.
+
+    Se descartan carreras enteras, no filas sueltas: dentro de una carrera
+    buena puede haber pilotos sin posición (inscritos que no tomaron la
+    salida, como Mazepin en Abu Dabi 2021 por enfermedad) y esas filas son
+    datos legítimos. Filtrar por fila las borraría en cada ejecución.
+    """
     if not destino.exists():
         return pd.DataFrame(), set()
     df = pd.read_csv(destino)
-    df = df[df["Position"].notna()]              # fuera las filas sin resultado
+    # count() ignora los nulos: una carrera con 0 posiciones vino vacía.
+    con_resultados = df.groupby(["Anio", "Ronda"])["Position"].transform("count") > 0
+    df = df[con_resultados]
     hechas = set(zip(df["Anio"], df["Ronda"]))   # pares (año, ronda) buenos
     return df, hechas
 
@@ -78,4 +86,13 @@ if __name__ == "__main__":
     destino = DATOS_CRUDOS / "carreras.csv"
     df = construir(ANIOS, destino)
     df.to_csv(destino, index=False)
-    print(f"\n{len(df)} filas guardadas en {destino}")
+
+    # Comprobación de sanidad: tiene que haber exactamente un ganador por
+    # carrera. Si no cuadra, algo se descargó a medias y hay que mirar los
+    # FALLO de arriba antes de fiarse del CSV.
+    carreras = df.groupby(["Anio", "Ronda"]).ngroups
+    victorias = int((df["Position"] == 1).sum())
+    print(f"\n{len(df)} filas · {carreras} carreras · {victorias} victorias")
+    if carreras != victorias:
+        print("AVISO: debería haber una victoria por carrera. Revisa los FALLO.")
+    print(f"Guardado en {destino}")
