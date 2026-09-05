@@ -1,6 +1,6 @@
 """Acceso a los datos de la Fórmula 1.
 
-Es la única parte del proyecto que habla con FastF1. El resto pide
+Es la única parte del proyecto que habla con FastF1. El resto pide 
 carreras y recibe tablas, sin saber de dónde salen.
 """
 
@@ -27,7 +27,8 @@ def resultados_carrera(anio, ronda):
     activar_cache()
     sesion = fastf1.get_session(anio, ronda, "R")
     sesion.load(laps=False, telemetry=False, weather=False, messages=False)
-    return sesion.results[COLUMNAS]
+    # Con .copy() evitamos que el DataFrame devuelto esté vinculado a la sesión de FastF1.
+    return sesion.results[COLUMNAS].copy()
 
 
 if __name__ == "__main__":
