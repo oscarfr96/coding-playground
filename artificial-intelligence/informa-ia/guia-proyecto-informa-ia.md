@@ -24,14 +24,18 @@ apagado). Si algo falla en esas partes, es un bug de la guía: díselo al agente
 > casillas, añade una línea a la Bitácora y actualiza "Próximo paso". Al final de cada bloque, pregúntale
 > 2-3 conceptos de su "🎤 Chuleta" para que los explique en voz alta en una o dos frases.
 
-**Carpeta del proyecto**: `C:\Users\oscar\Desktop\oscar\repos\informa-ia` (repo **propio**, fuera de
-`projects/`, porque acabará siendo público).
+**Carpeta del proyecto**: `C:\Users\oscar\Desktop\oscar\repos\coding-playground\artificial-intelligence\informa-ia`
+(decisión del 2026-09-20: vive dentro del repo público `coding-playground`, no en un repo propio.
+Por tanto: nada de `git init` ni `gh repo create`; los commits se hacen **solo** sobre esta carpeta,
+y el CI del Bloque 9 habrá que adaptarlo a un workflow en la raíz de `coding-playground` con filtro
+de rutas).
 
-**Próximo paso**: Bloque 0 — Repo, entorno y primer endpoint.
+**Próximo paso**: Bloque 1 — PostgreSQL en Docker, SQL a mano, ORM y migraciones.
+(Antes de empezar: **arrancar Docker Desktop**, que estaba apagado.)
 
 ### Checklist
 
-- [ ] Bloque 0 — Repo, entorno con uv y primer endpoint (Git, Python, FastAPI)
+- [x] Bloque 0 — Repo, entorno con uv y primer endpoint (Git, Python, FastAPI)
 - [ ] Bloque 1 — PostgreSQL en Docker, SQL a mano, ORM y migraciones
 - [ ] Bloque 2 — Conectores reutilizables: SQL seguro, documentos y CRM por HTTP
 - [ ] Bloque 3 — Tool calling: el bucle del agente
@@ -47,6 +51,7 @@ apagado). Si algo falla en esas partes, es un bug de la guía: díselo al agente
 
 | Fecha | Bloque(s) | Qué se hizo / decidió | Pendiente para la próxima |
 |---|---|---|---|
+| 2026-09-20 | 0 | Decidido construir dentro de `coding-playground` (no repo propio). `uv` instalado con `pip install uv` (0.12.17) en vez del script de astral.sh. Esqueleto: pyproject, .gitignore/.gitattributes/.vscode/.env.example, `src/informa` con `health.py` y `main.py`. `uv sync` OK, ruff limpio (arreglado un I001), `/health/live` devuelve 200 y Swagger funciona. Commit `f85b807`. | Crear el `.env` real con la API key de Anthropic; arrancar Docker Desktop |
 
 ---
 
