@@ -31,7 +31,16 @@ y el CI del Bloque 9 habrá que adaptarlo a un workflow en la raíz de `coding-p
 de rutas).
 
 **Próximo paso**: Bloque 1 — PostgreSQL en Docker, SQL a mano, ORM y migraciones.
-(Antes de empezar: **arrancar Docker Desktop**, que estaba apagado.)
+
+> ⚠️ **Bloqueo abierto (2026-09-20): WSL roto, Docker Desktop no arranca.** Docker Desktop dice
+> *"Virtualization support not detected"*, pero es un mensaje engañoso: la BIOS está bien
+> (`VirtualizationFirmwareEnabled: True`, `HypervisorPresent: True`, Ryzen 5 9600X). El fallo real es
+> `wsl --version` → `Wsl/CallMsi/Install/REGDB_E_CLASS_NOT_REGISTERED`. Arreglo en PowerShell **como
+> administrador**: `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
+> /norestart`, lo mismo con `VirtualMachinePlatform`, **reiniciar**, y después
+> `winget install --id Microsoft.WSL`. Si al volver sigue fallando, mirar `wsl --status`.
+> Plan B si no se arregla: PostgreSQL 17 nativo con winget — los Bloques 1-7 no necesitan Docker para
+> nada más, y el CI del Bloque 9 corre en runners de GitHub que ya traen Docker.
 
 ### Checklist
 
@@ -51,7 +60,7 @@ de rutas).
 
 | Fecha | Bloque(s) | Qué se hizo / decidió | Pendiente para la próxima |
 |---|---|---|---|
-| 2026-09-20 | 0 | Decidido construir dentro de `coding-playground` (no repo propio). `uv` instalado con `pip install uv` (0.12.17) en vez del script de astral.sh. Esqueleto: pyproject, .gitignore/.gitattributes/.vscode/.env.example, `src/informa` con `health.py` y `main.py`. `uv sync` OK, ruff limpio (arreglado un I001), `/health/live` devuelve 200 y Swagger funciona. Commit `f85b807`. | Crear el `.env` real con la API key de Anthropic; arrancar Docker Desktop |
+| 2026-09-20 | 0 | Decidido construir dentro de `coding-playground` (no repo propio). `uv` instalado con `pip install uv` (0.12.17) en vez del script de astral.sh. Esqueleto: pyproject, .gitignore/.gitattributes/.vscode/.env.example, `src/informa` con `health.py` y `main.py`. `uv sync` OK, ruff limpio (arreglado un I001), `/health/live` devuelve 200 y Swagger funciona. Commit `f85b807`. | Crear el `.env` real con la API key de Anthropic; **arreglar WSL** (ver bloqueo arriba) antes del Bloque 1 |
 
 ---
 
