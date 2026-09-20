@@ -33,22 +33,18 @@ Por tanto: nada de `git init` ni `gh repo create`; los commits se hacen **solo**
 y el CI del Bloque 9 habrá que adaptarlo a un workflow en la raíz de `coding-playground` con filtro
 de rutas).
 
-**Próximo paso**: Bloque 1 — PostgreSQL en Docker, SQL a mano, ORM y migraciones.
+**Próximo paso**: Bloque 1, segunda mitad. La infraestructura ya está hecha; **pendiente**:
+(a) los ejercicios de SQL en psql, (b) `config.py`, (c) `db.py`, (d) `models.py` + Alembic,
+(e) el endpoint `/health/ready`.
 
-> ⚠️ **Bloqueo abierto (2026-09-20): WSL roto, Docker Desktop no arranca.** Docker Desktop dice
-> *"Virtualization support not detected"*, pero es un mensaje engañoso: la BIOS está bien
-> (`VirtualizationFirmwareEnabled: True`, `HypervisorPresent: True`, Ryzen 5 9600X). El fallo real es
-> `wsl --version` → `Wsl/CallMsi/Install/REGDB_E_CLASS_NOT_REGISTERED`. Arreglo en PowerShell **como
-> administrador**: `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
-> /norestart`, lo mismo con `VirtualMachinePlatform`, **reiniciar**, y después
-> `winget install --id Microsoft.WSL`. Si al volver sigue fallando, mirar `wsl --status`.
-> Plan B si no se arregla: PostgreSQL 17 nativo con winget — los Bloques 1-7 no necesitan Docker para
-> nada más, y el CI del Bloque 9 corre en runners de GitHub que ya traen Docker.
+> ✅ **Resuelto (2026-09-20)**: el bloqueo de WSL/Docker. Fue `REGDB_E_CLASS_NOT_REGISTERED` + WSL
+> demasiado antigua, no un problema de virtualización. Motor Docker 29.7.2 y Compose v5.5.0
+> funcionando. El diagnóstico y los comandos quedaron anotados en `CHULETA.md`.
 
 ### Checklist
 
 - [x] Bloque 0 — Repo, entorno con uv y primer endpoint (Git, Python, FastAPI)
-- [ ] Bloque 1 — PostgreSQL en Docker, SQL a mano, ORM y migraciones
+- [~] Bloque 1 — PostgreSQL en Docker, SQL a mano, ORM y migraciones **(en curso: BD levantada; falta SQL, ORM y Alembic)**
 - [ ] Bloque 2 — Conectores reutilizables: SQL seguro, documentos y CRM por HTTP
 - [ ] Bloque 3 — Tool calling: el bucle del agente
 - [ ] Bloque 4 — Salidas estructuradas y generación de documentos
@@ -63,6 +59,7 @@ de rutas).
 
 | Fecha | Bloque(s) | Qué se hizo / decidió | Pendiente para la próxima |
 |---|---|---|---|
+| 2026-09-20 | 1 (mitad) | Arreglado WSL (dism + `winget install Microsoft.WSL` + `wsl --update`) y Docker arranca. `docker-compose.yml` con Postgres 17 y `db/init/` (roles, schema, seed, kb) cargados en `informa` e `informa_test`: 60 clientes, 2.000 pedidos, 5.029 líneas, 400 incidencias, 5 documentos (uno con prompt injection para el Bloque 6). Contenedor `healthy`. Creada `CHULETA.md` (referencia del stack para el día a día, a ampliar en cada bloque). Commits `6715b27`, `fff536c`. | Ejercicios SQL en psql (JOIN/HAVING/CTE/ventana/FILTER/EXPLAIN + prueba de mínimo privilegio), `config.py`, `db.py`, `models.py`, Alembic y `/health/ready` |
 | 2026-09-20 | 0 | Decidido construir dentro de `coding-playground` (no repo propio). `uv` instalado con `pip install uv` (0.12.17) en vez del script de astral.sh. Esqueleto: pyproject, .gitignore/.gitattributes/.vscode/.env.example, `src/informa` con `health.py` y `main.py`. `uv sync` OK, ruff limpio (arreglado un I001), `/health/live` devuelve 200 y Swagger funciona. Commit `f85b807`. | Crear el `.env` real con la API key de Anthropic; **arreglar WSL** (ver bloqueo arriba) antes del Bloque 1 |
 
 ---
