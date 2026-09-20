@@ -23,6 +23,9 @@ apagado). Si algo falla en esas partes, es un bug de la guía: díselo al agente
 > la salida. No le mandes "deberes con huecos". Al terminar la sesión, **actualiza esta sección**: marca
 > casillas, añade una línea a la Bitácora y actualiza "Próximo paso". Al final de cada bloque, pregúntale
 > 2-3 conceptos de su "🎤 Chuleta" para que los explique en voz alta en una o dos frases.
+> También **amplía `CHULETA.md`** (referencia de comandos y conceptos del stack para su día a día)
+> con lo nuevo de cada bloque: comandos que hemos usado de verdad, conceptos y errores que nos hemos
+> encontrado con su arreglo.
 
 **Carpeta del proyecto**: `C:\Users\oscar\Desktop\oscar\repos\coding-playground\artificial-intelligence\informa-ia`
 (decisión del 2026-09-20: vive dentro del repo público `coding-playground`, no en un repo propio.
