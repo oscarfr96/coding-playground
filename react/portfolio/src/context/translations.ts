@@ -7,10 +7,11 @@ export const en = {
         greeting: "Hi, I'm",
         name: "Óscar Fraile",
         role: "Software Engineer",
-        tagline: "Product-minded builder crafting secure, scalable systems meant to last. Endlessly curious and supercharged by AI across my entire workflow.",
-        bio: "Full Stack Engineer, backend-focused. I design distributed systems, scalable APIs, and containerized infrastructure built to last in production — always with an eye for clean, minimalist design and a soft spot for well-crafted microsites. Genuinely curious and always learning, I weave AI into how I build: agentic pipelines, MCP integrations, and LLM tooling.",
+        tagline: "I build software,",
+        taglineAccent: "from idea to production.",
+        bio: "I'm a software engineer who enjoys working on the backend, figuring out how the pieces fit together, and turning ideas into working products. I also care about thoughtful design and making those products intuitive to use. Lately, I've been building tools with AI.",
         location: "Madrid, Spain",
-        projectsBtn: "View Projects"
+        projectsBtn: "Explore my projects"
     },
     experience: {
         title: "Professional Experience",
@@ -70,7 +71,7 @@ export const en = {
         certifications: [
             { year: "2026", title: "Microsoft Certified: Azure Developer Associate", issuer: "Microsoft", link: "https://learn.microsoft.com/es-es/users/oscarfraile-4162/credentials/71071e593e7051f5?ref=https%3A%2F%2Fwww.linkedin.com%2F" },
             { year: "2026", title: "Claude Code in Action", issuer: "Anthropic", link: "https://verify.skilljar.com/c/yp5g3ps52vuy" },
-            { year: "2026", title: "Machine Learning with Python", issuer: "IBM", link: "" },
+            { year: "2026", title: "Machine Learning with Python", issuer: "IBM", link: "https://coursera.org/share/6bfc550c07dc8e0f41ddacc9ffc5d469" },
             { year: "2024", title: "What The Hack: Azure OpenAI Fundamentals", issuer: "Código Facilito", link: "https://codigofacilito.com/certificates/facb5574-782f-4688-8eab-ea874ec2d28d" },
             { year: "2024", title: "Developing Back-End Apps with Node.js and Express", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/verify/GZUFR8WVTSAM" },
             { year: "2018", title: "Cambridge English: Advanced (CAE) — CEFR C1", issuer: "University of Cambridge", link: "" }
@@ -82,7 +83,7 @@ export const en = {
         modalStack: "Stack",
         modalDemo: "View demo",
         gredio: {
-            title: "Gredio",
+            title: "GoIA",
             tagline: "Speaker diarization platform — from the model to the API",
             stats: [
                 { figure: "EEND", label: "custom model" },
@@ -90,13 +91,13 @@ export const en = {
                 { figure: "FastAPI", label: "REST backend" },
                 { figure: "Google Cloud", label: "Run · GPU VMs · Firestore" }
             ],
-            about: "Gredio is a speaker diarization service: it works out who speaks and when in an audio file, returning timestamps and speaker labels — no transcription. At its core is an EEND model — a Whisper-style audio encoder feeding a bidirectional GRU that flags active speakers frame by frame — which a friend and I built together; I designed and built the whole platform around it.",
+            about: "GoIA is a speaker diarization service: it works out who speaks and when in an audio file, returning timestamps and speaker labels — no transcription. At its core is an EEND model — a Whisper-style audio encoder feeding a bidirectional GRU that flags active speakers frame by frame — which a friend and I built together; I designed and built the whole platform around it.",
             built: [
                 "Async, job-based Batch API in FastAPI on Cloud Run: create job → upload audio → run → poll/webhook → results.",
                 "On-demand GPU orchestration: spins up ephemeral Compute Engine VMs (T4→L4 zone cascade) that run the model in Docker and self-delete when done.",
                 "Prepaid credit system with atomic Firestore transactions and per-key minute quotas.",
                 "Layered auth (API keys, JWT, admin and single-use VM tokens), webhooks with retry/backoff, and a Cloud Scheduler watchdog that fails stuck jobs and refunds credits.",
-                "React admin/client dashboard (TanStack Query, Zustand, i18n) and the marketing landing page — both on Vercel."
+                "Designed and built the marketing landing page and the React admin/client dashboard (TanStack Query, Zustand, i18n), shaping both the visual design and the user experience — both deployed on Vercel."
             ]
         },
         worldCup: {
@@ -145,10 +146,11 @@ export const es = {
         greeting: "Hola, soy",
         name: "Óscar Fraile",
         role: "Software Engineer",
-        tagline: "Constructor con mentalidad de producto, creando sistemas seguros y escalables hechos para durar. Infinitamente curioso y potenciado por la IA en todo mi flujo de trabajo.",
-        bio: "Full Stack Engineer con foco en backend. Diseño sistemas distribuidos, APIs escalables e infraestructura contenerizada, pensados para durar en producción — siempre con ojo para el diseño limpio y minimalista y debilidad por los microsites bien construidos. Genuinamente curioso y en constante aprendizaje, integro la IA en mi forma de construir: pipelines agénticos, integraciones MCP y tooling con LLMs.",
+        tagline: "Construyo software,",
+        taglineAccent: "desde la idea hasta producción.",
+        bio: "Soy ingeniero de software. Me gusta trabajar en el backend, pensar cómo encajan las piezas y convertir ideas en productos que funcionan. También cuido el diseño y la experiencia de usuario para que esos productos resulten intuitivos. Últimamente, construyo herramientas con IA.",
         location: "Madrid, España",
-        projectsBtn: "Ver Proyectos"
+        projectsBtn: "Explora mis proyectos"
     },
     experience: {
         title: "Experiencia Profesional",
@@ -208,7 +210,7 @@ export const es = {
         certifications: [
             { year: "2026", title: "Microsoft Certified: Azure Developer Associate", issuer: "Microsoft", link: "https://learn.microsoft.com/es-es/users/oscarfraile-4162/credentials/71071e593e7051f5?ref=https%3A%2F%2Fwww.linkedin.com%2F" },
             { year: "2026", title: "Claude Code in Action", issuer: "Anthropic", link: "https://verify.skilljar.com/c/yp5g3ps52vuy" },
-            { year: "2026", title: "Machine Learning with Python", issuer: "IBM", link: "" },
+            { year: "2026", title: "Machine Learning with Python", issuer: "IBM", link: "https://coursera.org/share/6bfc550c07dc8e0f41ddacc9ffc5d469" },
             { year: "2024", title: "What The Hack: Azure OpenAI Fundamentals", issuer: "Código Facilito", link: "https://codigofacilito.com/certificates/facb5574-782f-4688-8eab-ea874ec2d28d" },
             { year: "2024", title: "Developing Back-End Apps with Node.js and Express", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/verify/GZUFR8WVTSAM" },
             { year: "2018", title: "Cambridge English: Advanced (CAE) — CEFR C1", issuer: "University of Cambridge", link: "" }
@@ -220,7 +222,7 @@ export const es = {
         modalStack: "Stack",
         modalDemo: "Ver demo",
         gredio: {
-            title: "Gredio",
+            title: "GoIA",
             tagline: "Plataforma de diarización de hablantes — del modelo a la API",
             stats: [
                 { figure: "EEND", label: "modelo a medida" },
@@ -228,13 +230,13 @@ export const es = {
                 { figure: "FastAPI", label: "backend REST" },
                 { figure: "Google Cloud", label: "Run · VMs GPU · Firestore" }
             ],
-            about: "Gredio es un servicio de diarización de hablantes: detecta quién habla y cuándo en un audio y devuelve timestamps y etiquetas de hablante — sin transcripción. En su núcleo hay un modelo EEND — un encoder de audio estilo Whisper que alimenta un GRU bidireccional para marcar los hablantes activos frame a frame — que desarrollé junto a un amigo; yo diseñé y construí toda la plataforma a su alrededor.",
+            about: "GoIA es un servicio de diarización de hablantes: detecta quién habla y cuándo en un audio y devuelve timestamps y etiquetas de hablante — sin transcripción. En su núcleo hay un modelo EEND — un encoder de audio estilo Whisper que alimenta un GRU bidireccional para marcar los hablantes activos frame a frame — que desarrollé junto a un amigo; yo diseñé y construí toda la plataforma a su alrededor.",
             built: [
                 "Batch API asíncrona y por jobs en FastAPI sobre Cloud Run: crear job → subir audio → ejecutar → polling/webhook → resultados.",
                 "Orquestación GPU bajo demanda: levanta VMs efímeras de Compute Engine (cascada de zonas T4→L4) que ejecutan el modelo en Docker y se auto-eliminan al terminar.",
                 "Sistema de crédito prepago con transacciones atómicas de Firestore y cuotas de minutos por API key.",
                 "Auth por capas (API keys, JWT, tokens de admin y de VM de un solo uso), webhooks con reintentos/backoff y un watchdog en Cloud Scheduler que marca jobs atascados y reembolsa créditos.",
-                "Dashboard de admin/cliente en React (TanStack Query, Zustand, i18n) y la landing de marketing — ambos en Vercel."
+                "Diseñé y desarrollé la landing de marketing y el dashboard de admin/cliente en React (TanStack Query, Zustand, i18n), cuidando tanto el diseño visual como la experiencia de usuario — ambos desplegados en Vercel."
             ]
         },
         worldCup: {

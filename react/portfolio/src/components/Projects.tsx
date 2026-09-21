@@ -23,7 +23,7 @@ const PROJECTS: ProjectMeta[] = [
             // ES
             'diarización de hablantes', 'modelo EEND', 'encoder de audio estilo Whisper', 'GRU bidireccional', 'toda la plataforma',
         ],
-        link: 'https://gredio-landing-page.vercel.app/',
+        link: 'https://www.grediolabs.com/goia',
     },
     {
         id: 'worldCup',

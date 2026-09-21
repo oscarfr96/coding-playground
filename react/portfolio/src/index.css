@@ -77,6 +77,10 @@ html {
   scroll-behavior: smooth;
 }
 
+#projects {
+  scroll-margin-top: 6rem;
+}
+
 body {
   background-color: var(--color-canvas);
   color: var(--color-ink);
