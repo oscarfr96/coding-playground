@@ -1,0 +1,371 @@
+[
+  {
+    "date": "2024-11-03",
+    "race": "São Paulo Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 5.505763799794001,
+    "grid_logloss": 6.134029465063008,
+    "brier": 1.30454403285197
+  },
+  {
+    "date": "2024-11-23",
+    "race": "Las Vegas Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.8224209723019034,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.3671665513417595
+  },
+  {
+    "date": "2024-12-01",
+    "race": "Qatar Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 1.6650117675867677,
+    "grid_logloss": 1.8538971380704659,
+    "brier": 0.8849115801483971
+  },
+  {
+    "date": "2024-12-08",
+    "race": "Abu Dhabi Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.8149793232719391,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.3687063470321821
+  },
+  {
+    "date": "2025-03-16",
+    "race": "Australian Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.7392023831126743,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.3233819447467249
+  },
+  {
+    "date": "2025-03-23",
+    "race": "Chinese Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.7499936193380117,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.3330094011463058
+  },
+  {
+    "date": "2025-04-06",
+    "race": "Japanese Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.6972091809094401,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.3017637654370534
+  },
+  {
+    "date": "2025-04-13",
+    "race": "Bahrain Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.6289681587925603,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.2599335892574537
+  },
+  {
+    "date": "2025-04-20",
+    "race": "Saudi Arabian Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 1.7235992768670632,
+    "grid_logloss": 1.8538971380704659,
+    "brier": 0.9738632074060809
+  },
+  {
+    "date": "2025-05-04",
+    "race": "Miami Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 2.892040483994923,
+    "grid_logloss": 3.2401914991903564,
+    "brier": 1.205375199128446
+  },
+  {
+    "date": "2025-05-18",
+    "race": "Emilia Romagna Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 1.7703322510468393,
+    "grid_logloss": 1.8538971380704659,
+    "brier": 1.005295207817068
+  },
+  {
+    "date": "2025-05-25",
+    "race": "Monaco Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.3682552402557956,
+    "grid_logloss": 0.4676027769505751,
+    "brier": 0.12546280860912948
+  },
+  {
+    "date": "2025-06-01",
+    "race": "Spanish Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.6264558875640862,
+    "grid_logloss": 0.46603529325112175,
+    "brier": 0.267557488520219
+  },
+  {
+    "date": "2025-06-15",
+    "race": "Canadian Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.695052647207903,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.30228343535276037
+  },
+  {
+    "date": "2025-06-29",
+    "race": "Austrian Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.598511850555019,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.2475760532547009
+  },
+  {
+    "date": "2025-07-06",
+    "race": "British Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 2.3838697665006885,
+    "grid_logloss": 2.664827354286795,
+    "brier": 1.1244451000724627
+  },
+  {
+    "date": "2025-07-27",
+    "race": "Belgian Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 1.632535301937438,
+    "grid_logloss": 1.8538971380704659,
+    "brier": 0.9719816033370523
+  },
+  {
+    "date": "2025-08-03",
+    "race": "Hungarian Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 2.821400224019397,
+    "grid_logloss": 2.664827354286795,
+    "brier": 1.3933053965027973
+  },
+  {
+    "date": "2025-08-31",
+    "race": "Dutch Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.3954563412002792,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.14286722927453027
+  },
+  {
+    "date": "2025-09-07",
+    "race": "Italian Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.7847208338582562,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.36791239095880635
+  },
+  {
+    "date": "2025-09-21",
+    "race": "Azerbaijan Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5815106419798746,
+    "grid_logloss": 0.4676027769505751,
+    "brier": 0.2304649123815799
+  },
+  {
+    "date": "2025-10-05",
+    "race": "Singapore Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.39543065622752466,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.14013092398439472
+  },
+  {
+    "date": "2025-10-19",
+    "race": "United States Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5866967979993991,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.24122749179504027
+  },
+  {
+    "date": "2025-10-26",
+    "race": "Mexico City Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5723490076180258,
+    "grid_logloss": 0.4676027769505751,
+    "brier": 0.22899579736827486
+  },
+  {
+    "date": "2025-11-09",
+    "race": "São Paulo Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5171587113600224,
+    "grid_logloss": 0.46760277695057545,
+    "brier": 0.2006801543186645
+  },
+  {
+    "date": "2025-11-23",
+    "race": "Las Vegas Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 1.6961587815002566,
+    "grid_logloss": 1.8538971380704659,
+    "brier": 1.0377055593256888
+  },
+  {
+    "date": "2025-11-30",
+    "race": "Qatar Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 2.4242007967979573,
+    "grid_logloss": 2.664827354286795,
+    "brier": 1.172546185066586
+  },
+  {
+    "date": "2025-12-07",
+    "race": "Abu Dhabi Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5413287093297444,
+    "grid_logloss": 0.4676027769505753,
+    "brier": 0.21657270452086336
+  },
+  {
+    "date": "2026-03-08",
+    "race": "Australian Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5414543329166364,
+    "grid_logloss": 0.47031416434450035,
+    "brier": 0.2163357705408806
+  },
+  {
+    "date": "2026-03-15",
+    "race": "Chinese Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5516956233258519,
+    "grid_logloss": 0.4703141643445002,
+    "brier": 0.2273346454720657
+  },
+  {
+    "date": "2026-03-29",
+    "race": "Japanese Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5268212116403378,
+    "grid_logloss": 0.4703141643445002,
+    "brier": 0.2140480825783579
+  },
+  {
+    "date": "2026-05-03",
+    "race": "Miami Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5135441011477098,
+    "grid_logloss": 0.4703141643445002,
+    "brier": 0.19893395192311997
+  },
+  {
+    "date": "2026-05-24",
+    "race": "Canadian Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 1.6949703978773216,
+    "grid_logloss": 1.8566085254643907,
+    "brier": 1.048377551856055
+  },
+  {
+    "date": "2026-06-07",
+    "race": "Monaco Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.2927948840883512,
+    "grid_logloss": 0.4703141643445002,
+    "brier": 0.08408603423193324
+  },
+  {
+    "date": "2026-06-14",
+    "race": "Barcelona Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 1.5880987277944092,
+    "grid_logloss": 1.8566085254643907,
+    "brier": 0.9634538783201833
+  },
+  {
+    "date": "2026-06-28",
+    "race": "Austrian Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5914527779216135,
+    "grid_logloss": 0.4703141643445002,
+    "brier": 0.2484776637912993
+  },
+  {
+    "date": "2026-07-05",
+    "race": "British Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 1.7612154965697413,
+    "grid_logloss": 1.8566085254643907,
+    "brier": 1.0520393701019617
+  },
+  {
+    "date": "2026-07-19",
+    "race": "Belgian Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.5620600897624219,
+    "grid_logloss": 0.4703141643445002,
+    "brier": 0.2298020266149413
+  },
+  {
+    "date": "2026-07-26",
+    "race": "Hungarian Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.34219656594883824,
+    "grid_logloss": 0.47031416434450035,
+    "brier": 0.11370234081254697
+  },
+  {
+    "date": "2026-08-23",
+    "race": "Dutch Grand Prix",
+    "hit": 1,
+    "pole_hit": 1,
+    "logloss": 0.29024488032802004,
+    "grid_logloss": 0.4703141643445002,
+    "brier": 0.08626779753294321
+  },
+  {
+    "date": "2026-09-06",
+    "race": "Italian Grand Prix",
+    "hit": 0,
+    "pole_hit": 0,
+    "logloss": 6.0361051310329925,
+    "grid_logloss": 6.35919212267738,
+    "brier": 1.3258136958522189
+  }
+]

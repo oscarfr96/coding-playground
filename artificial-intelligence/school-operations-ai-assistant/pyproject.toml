@@ -1,0 +1,12 @@
+[project]
+name = "school-operations-ai-assistant"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.20.0",
+    "fastapi[standard]>=0.141.1",
+    "mcp[cli]>=2.2.0",
+    "psycopg[binary]>=3.3.6",
+    "pyjwt[crypto]>=2.15.0",
+    "sqlalchemy>=2.1.1",
+]

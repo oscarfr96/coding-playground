@@ -1,0 +1,1 @@
+CREATE TYPE academic_status AS ENUM ('Good Standing', 'Probation', 'Suspended');

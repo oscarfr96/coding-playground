@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GP de España · predecir el ganador</title>
+<style>
+:root{--canvas:#fbf7ea;--surface:#fffefb;--muted:#f5efdd;--border:#ddd2b4;--ink:#2f2a20;--ink-muted:#6f674f;--rosa:#c43370;--menta:#2c9466;--term:#2f2a20;--girasol:#f8cf5c;--display:'Trebuchet MS',sans-serif;--sans:Arial,sans-serif;--mono:'Courier New',monospace}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:17px/1.6 var(--sans);padding:32px 20px 80px}.wrap{max-width:660px;margin:auto}h1{font:700 34px/1.1 var(--display);margin:0 0 6px}.sub{color:var(--ink-muted);font-size:15px;margin:0}.antes{font-size:14px;color:var(--ink-muted);background:var(--muted);border-left:4px solid var(--girasol);padding:12px 16px;margin:18px 0 30px}hr{border:0;border-top:2px solid var(--border);margin:30px 0}.paso{margin:0 0 30px}.tc{font:700 13px var(--mono);letter-spacing:.04em;color:var(--rosa);margin:0 0 8px}.di{font-size:21px;line-height:1.5;margin:0 0 14px}.hacer{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--menta);margin:18px 0 8px}pre{background:var(--term);color:#f3ecd8;font:14px/1.7 var(--mono);padding:14px 16px;border-radius:10px;overflow-x:auto;margin:0 0 12px}.ver{font-size:14px;color:var(--ink-muted);border-left:3px solid var(--border);padding-left:12px;margin:0}h2{font:500 20px var(--display);margin:0 0 12px}.resultado{background:var(--surface);border:2px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:14px}.resultado b{color:var(--rosa)}.pie{background:var(--surface);border:2px solid var(--border);border-radius:10px;padding:16px 18px;white-space:pre-wrap;font-size:15px;color:var(--ink-muted)}.notas{font-size:15px;color:var(--ink-muted);padding-left:20px}.notas li{margin-bottom:7px}.notas b{color:var(--ink)}code{font:14px var(--mono);background:var(--muted);padding:1px 5px;border-radius:5px}
+</style>
+<div class="wrap">
+<h1>¿Quién gana el primer GP de España en Madring?</h1>
+<p class="sub">Reel vertical · predicción previa a la carrera · 1:25 aprox.</p>
+<p class="antes"><b>Antes de grabar:</b> parrilla oficial comprobada; abre <code>predecir.py</code>; el resultado está guardado en <code>resultado.json</code>. Las probabilidades son experimentales, no cuotas.</p>
+<hr>
+
+<div class="paso">
+<p class="tc">0:00 – 0:10 · A CÁMARA</p>
+<p class="di">Vamos a predecir el ganador del Gran Premio de España. Ayer Norris consiguió la pole, así que vamos a intentar predecir el ganador teniendo en cuenta cómo sale cada piloto, si mantiene su posición en la primera vuelta y qué puede pasar si aparece un coche de seguridad o una bandera roja.</p>
+</div>
+
+<div class="paso">
+<p class="tc">0:10 – 0:22 · A CÁMARA</p>
+<p class="di">Madring es nuevo y todavía no tiene histórico de Fórmula 1. Por eso no voy a fingir que sé cuánto cuesta adelantar aquí. Uso la pole como referencia y entreno con 61 carreras anteriores: parrilla, líder de la primera vuelta, resultado final y estado de la pista.</p>
+</div>
+
+<div class="paso">
+<p class="tc">0:22 – 0:40 · PANTALLA · analisis/madring/predecir.py</p>
+<p class="di">El modelo tiene dos pasos. Primero estima quién lidera al acabar la vuelta uno. Después estima quién gana condicionado a ese líder. Entre medias mezcla tres escenarios: carrera limpia, coche de seguridad sin bandera roja y carrera con bandera roja.</p>
+<p class="hacer">Ejecuta</p>
+<pre>&gt; &amp; ".\.venv\Scripts\python.exe" predecir.py</pre>
+<p class="ver">Se ve la tabla de probabilidades y la validación temporal.</p>
+</div>
+
+<div class="paso">
+<p class="tc">0:40 – 0:57 · PANTALLA · resultado.json</p>
+<p class="di">El resultado es Norris. Tiene un <b>75,4%</b> de probabilidad de victoria y un <b>76,5%</b> de probabilidad de seguir primero al terminar la vuelta uno.</p>
+<div class="resultado"><b>Top del modelo</b><br>1 · Norris — 75,4%<br>2 · Antonelli — 14,3%<br>3 · Verstappen — 3,6%<br>4 · Hamilton — 2,3%<br>5 · Leclerc — 1,3%</div>
+<p class="di">La historia de las poles de Norris es menos contundente: mantuvo la primera posición en nueve de sus diecisiete poles observadas. El modelo suaviza esa muestra y también tiene en cuenta el equipo, la forma reciente y la posición de salida.</p>
+</div>
+
+<div class="paso">
+<p class="tc">0:57 – 1:10 · PANTALLA · escenarios</p>
+<p class="di">En los datos anteriores, el escenario limpio aparece el 36,5% de las veces, el coche de seguridad o virtual el 43,3% y una bandera roja el 20,2%. Si Norris lidera tras la salida, su probabilidad sube al <b>82,2%</b>. Si no lidera, el modelo todavía le deja un <b>53,3%</b> porque puede recuperar con ritmo o estrategia.</p>
+</div>
+
+<div class="paso">
+<p class="tc">1:10 – 1:25 · A CÁMARA</p>
+<p class="di">Así que mi predicción es Norris, pero la cifra que me interesa comprobar es la salida: ¿seguirá primero en la vuelta uno? En la validación, el modelo acertó 27 de 41 carreras, exactamente igual que elegir siempre al poleman. Hoy la pole es una buena pista; después de la carrera veremos si era suficiente.</p>
+</div>
+
+<hr>
+<h2>Todos los comandos</h2>
+<pre># Solo si hay que reconstruir las fuentes
+&amp; ".\.venv\Scripts\python.exe" descargar.py
+&amp; ".\.venv\Scripts\python.exe" predecir.py</pre>
+
+<hr>
+<h2>Pie de foto</h2>
+<div class="pie">La pole de Norris es un buen punto de partida, pero no una victoria automática.
+
+He usado 61 carreras anteriores para separar tres cosas: quién lidera la primera vuelta, qué pasa con las neutralizaciones y quién acaba ganando. El modelo da 75,4% a Norris y 14,3% a Antonelli. En la validación acertó 27 de 41, lo mismo que el baseline de elegir al poleman.
+
+¿Quién llegará primero al final de la primera vuelta?
+.
+.
+#f1 #formula1 #madring #gpdeespaña #landonorris #f1data #analisisdedatos #machinelearning</div>
+
+<hr>
+<h2>Montaje</h2>
+<ul class="notas"><li><b>Rotula los números:</b> «75,4% Norris · 14,3% Antonelli · 76,5% líder en vuelta 1».</li><li>Enseña la salida del comando durante dos o tres segundos; no hace falta mostrar el fichero entero.</li><li>Subtítulos revisados a mano, especialmente «Antonelli», «Madring» y «coche de seguridad».</li><li>Música del catálogo de Instagram al 10–15%.</li></ul>
+</div>
+</html>

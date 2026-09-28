@@ -1,0 +1,138 @@
+{
+  "source": "https://api.jolpi.ca/ergast/f1/2026/14/qualifying.json",
+  "note": "Clasificacion usada como parrilla; no incluye sanciones posteriores.",
+  "rows": [
+    {
+      "driver": "norris",
+      "code": "NOR",
+      "team": "mclaren",
+      "grid": 1
+    },
+    {
+      "driver": "antonelli",
+      "code": "ANT",
+      "team": "mercedes",
+      "grid": 2
+    },
+    {
+      "driver": "max_verstappen",
+      "code": "VER",
+      "team": "red_bull",
+      "grid": 3
+    },
+    {
+      "driver": "hamilton",
+      "code": "HAM",
+      "team": "ferrari",
+      "grid": 4
+    },
+    {
+      "driver": "leclerc",
+      "code": "LEC",
+      "team": "ferrari",
+      "grid": 5
+    },
+    {
+      "driver": "russell",
+      "code": "RUS",
+      "team": "mercedes",
+      "grid": 6
+    },
+    {
+      "driver": "piastri",
+      "code": "PIA",
+      "team": "mclaren",
+      "grid": 7
+    },
+    {
+      "driver": "lawson",
+      "code": "LAW",
+      "team": "red_bull",
+      "grid": 8
+    },
+    {
+      "driver": "colapinto",
+      "code": "COL",
+      "team": "alpine",
+      "grid": 9
+    },
+    {
+      "driver": "arvid_lindblad",
+      "code": "LIN",
+      "team": "rb",
+      "grid": 10
+    },
+    {
+      "driver": "hulkenberg",
+      "code": "HUL",
+      "team": "audi",
+      "grid": 11
+    },
+    {
+      "driver": "bortoleto",
+      "code": "BOR",
+      "team": "audi",
+      "grid": 12
+    },
+    {
+      "driver": "ocon",
+      "code": "OCO",
+      "team": "haas",
+      "grid": 13
+    },
+    {
+      "driver": "gasly",
+      "code": "GAS",
+      "team": "alpine",
+      "grid": 14
+    },
+    {
+      "driver": "tsunoda",
+      "code": "TSU",
+      "team": "rb",
+      "grid": 15
+    },
+    {
+      "driver": "albon",
+      "code": "ALB",
+      "team": "williams",
+      "grid": 16
+    },
+    {
+      "driver": "sainz",
+      "code": "SAI",
+      "team": "williams",
+      "grid": 17
+    },
+    {
+      "driver": "alonso",
+      "code": "ALO",
+      "team": "aston_martin",
+      "grid": 18
+    },
+    {
+      "driver": "perez",
+      "code": "PER",
+      "team": "cadillac",
+      "grid": 19
+    },
+    {
+      "driver": "bottas",
+      "code": "BOT",
+      "team": "cadillac",
+      "grid": 20
+    },
+    {
+      "driver": "bearman",
+      "code": "BEA",
+      "team": "haas",
+      "grid": 21
+    },
+    {
+      "driver": "stroll",
+      "code": "STR",
+      "team": "aston_martin",
+      "grid": 22
+    }
+  ]
+}

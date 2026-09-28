@@ -1,0 +1,448 @@
+{
+  "cutoff": "2026-09-13",
+  "last_race": "2026-09-06",
+  "n_races": 61,
+  "label": "Experimental; sin calibracion externa; parrilla oficial verificada",
+  "scenario_probabilities": {
+    "limpia": 0.3645833333333333,
+    "sc_vsc": 0.4330357142857143,
+    "roja": 0.20238095238095238
+  },
+  "comparables": [
+    "hungaroring",
+    "marina_bay",
+    "monaco",
+    "zandvoort"
+  ],
+  "n_comparable": 11,
+  "validation": {
+    "n": 41,
+    "hits": 27,
+    "pole_hits": 27,
+    "logloss": 1.2420309178849276,
+    "grid_logloss": 1.2491540584645862,
+    "brier": 0.5304472895264756
+  },
+  "drivers": [
+    {
+      "driver": "norris",
+      "code": "NOR",
+      "team": "mclaren",
+      "grid": 1,
+      "win": 0.7539516097959705,
+      "lead_lap1": 0.7651567337202893,
+      "win_without_comparable_assumption": 0.5866083743563628,
+      "win_by_scenario": {
+        "limpia": 0.750811245594025,
+        "sc_vsc": 0.8077723245914279,
+        "roja": 0.6444483835018422
+      },
+      "starts_observed": 60,
+      "starts_missing": 1,
+      "maintained": 39,
+      "poles": 17,
+      "poles_retained": 9
+    },
+    {
+      "driver": "antonelli",
+      "code": "ANT",
+      "team": "mercedes",
+      "grid": 2,
+      "win": 0.1429653306878942,
+      "lead_lap1": 0.13182676567619422,
+      "win_without_comparable_assumption": 0.18372384124836832,
+      "win_by_scenario": {
+        "limpia": 0.150224871642378,
+        "sc_vsc": 0.128100334276051,
+        "roja": 0.16169420143787835
+      },
+      "starts_observed": 36,
+      "starts_missing": 1,
+      "maintained": 24,
+      "poles": 6,
+      "poles_retained": 2
+    },
+    {
+      "driver": "max_verstappen",
+      "code": "VER",
+      "team": "red_bull",
+      "grid": 3,
+      "win": 0.03642296494976437,
+      "lead_lap1": 0.043270188435281826,
+      "win_without_comparable_assumption": 0.06146344500000966,
+      "win_by_scenario": {
+        "limpia": 0.037674344173629686,
+        "sc_vsc": 0.027691024800504675,
+        "roja": 0.05285242578496711
+      },
+      "starts_observed": 58,
+      "starts_missing": 3,
+      "maintained": 51,
+      "poles": 16,
+      "poles_retained": 16
+    },
+    {
+      "driver": "hamilton",
+      "code": "HAM",
+      "team": "ferrari",
+      "grid": 4,
+      "win": 0.0229015092104726,
+      "lead_lap1": 0.01985997525120397,
+      "win_without_comparable_assumption": 0.04583459996639809,
+      "win_by_scenario": {
+        "limpia": 0.0229158870793765,
+        "sc_vsc": 0.015250283496182923,
+        "roja": 0.039246980570596425
+      },
+      "starts_observed": 61,
+      "starts_missing": 0,
+      "maintained": 52,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "leclerc",
+      "code": "LEC",
+      "team": "ferrari",
+      "grid": 5,
+      "win": 0.01290526095314998,
+      "lead_lap1": 0.012489708760102716,
+      "win_without_comparable_assumption": 0.0290613807423393,
+      "win_by_scenario": {
+        "limpia": 0.012449722002805844,
+        "sc_vsc": 0.007678995214982554,
+        "roja": 0.024908572516687006
+      },
+      "starts_observed": 61,
+      "starts_missing": 0,
+      "maintained": 54,
+      "poles": 4,
+      "poles_retained": 4
+    },
+    {
+      "driver": "russell",
+      "code": "RUS",
+      "team": "mercedes",
+      "grid": 6,
+      "win": 0.008173367108991485,
+      "lead_lap1": 0.006589741796401042,
+      "win_without_comparable_assumption": 0.02023767209607282,
+      "win_by_scenario": {
+        "limpia": 0.007591796355207626,
+        "sc_vsc": 0.004404685370278885,
+        "roja": 0.017284920201950396
+      },
+      "starts_observed": 60,
+      "starts_missing": 1,
+      "maintained": 40,
+      "poles": 10,
+      "poles_retained": 7
+    },
+    {
+      "driver": "piastri",
+      "code": "PIA",
+      "team": "mclaren",
+      "grid": 7,
+      "win": 0.005377445965562152,
+      "lead_lap1": 0.004548082077228125,
+      "win_without_comparable_assumption": 0.014372012835883931,
+      "win_by_scenario": {
+        "limpia": 0.004818086866965302,
+        "sc_vsc": 0.0026541233725352886,
+        "roja": 0.012212224301790427
+      },
+      "starts_observed": 58,
+      "starts_missing": 3,
+      "maintained": 46,
+      "poles": 6,
+      "poles_retained": 5
+    },
+    {
+      "driver": "lawson",
+      "code": "LAW",
+      "team": "red_bull",
+      "grid": 8,
+      "win": 0.0038216868723881378,
+      "lead_lap1": 0.004027116453945817,
+      "win_without_comparable_assumption": 0.01089700021749548,
+      "win_by_scenario": {
+        "limpia": 0.003309272849431855,
+        "sc_vsc": 0.0017425519483831847,
+        "roja": 0.00919352289084204
+      },
+      "starts_observed": 42,
+      "starts_missing": 1,
+      "maintained": 35,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "colapinto",
+      "code": "COL",
+      "team": "alpine",
+      "grid": 9,
+      "win": 0.002599953671468565,
+      "lead_lap1": 0.002660775412458113,
+      "win_without_comparable_assumption": 0.007854223581773827,
+      "win_by_scenario": {
+        "limpia": 0.0021769824670896756,
+        "sc_vsc": 0.0011020016190051128,
+        "roja": 0.006567100673966303
+      },
+      "starts_observed": 38,
+      "starts_missing": 2,
+      "maintained": 30,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "arvid_lindblad",
+      "code": "LIN",
+      "team": "rb",
+      "grid": 10,
+      "win": 0.0023039538676671123,
+      "lead_lap1": 0.001971907102424719,
+      "win_without_comparable_assumption": 0.0073257347521743866,
+      "win_by_scenario": {
+        "limpia": 0.0018686434727281864,
+        "sc_vsc": 0.0009130400092179267,
+        "roja": 0.006064299305672626
+      },
+      "starts_observed": 12,
+      "starts_missing": 1,
+      "maintained": 12,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "hulkenberg",
+      "code": "HUL",
+      "team": "audi",
+      "grid": 11,
+      "win": 0.0015660429214174024,
+      "lead_lap1": 0.0013739230729224868,
+      "win_without_comparable_assumption": 0.005215717501327038,
+      "win_by_scenario": {
+        "limpia": 0.0012318975822725915,
+        "sc_vsc": 0.000582977960726256,
+        "roja": 0.0042714658012085955
+      },
+      "starts_observed": 58,
+      "starts_missing": 3,
+      "maintained": 42,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "bortoleto",
+      "code": "BOR",
+      "team": "audi",
+      "grid": 12,
+      "win": 0.001389513367603984,
+      "lead_lap1": 0.0010121363291545388,
+      "win_without_comparable_assumption": 0.004827729136866181,
+      "win_by_scenario": {
+        "limpia": 0.0010616080442907374,
+        "sc_vsc": 0.0004879161077104244,
+        "roja": 0.003909378123786124
+      },
+      "starts_observed": 35,
+      "starts_missing": 2,
+      "maintained": 19,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "gasly",
+      "code": "GAS",
+      "team": "alpine",
+      "grid": 14,
+      "win": 0.0010679270488648358,
+      "lead_lap1": 0.0008225506239966389,
+      "win_without_comparable_assumption": 0.003999704609881495,
+      "win_by_scenario": {
+        "limpia": 0.0007727013376719137,
+        "sc_vsc": 0.00033714908691929036,
+        "roja": 0.0031634173883385093
+      },
+      "starts_observed": 59,
+      "starts_missing": 2,
+      "maintained": 45,
+      "poles": 1,
+      "poles_retained": 1
+    },
+    {
+      "driver": "tsunoda",
+      "code": "TSU",
+      "team": "rb",
+      "grid": 15,
+      "win": 0.0009112335002729445,
+      "lead_lap1": 0.0006542802812158102,
+      "win_without_comparable_assumption": 0.0035304151124595064,
+      "win_by_scenario": {
+        "limpia": 0.0006425650242528716,
+        "sc_vsc": 0.00027393510335764086,
+        "roja": 0.00275886298650288
+      },
+      "starts_observed": 49,
+      "starts_missing": 1,
+      "maintained": 35,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "ocon",
+      "code": "OCO",
+      "team": "haas",
+      "grid": 13,
+      "win": 0.0008811989737371009,
+      "lead_lap1": 0.0010555295563414195,
+      "win_without_comparable_assumption": 0.0031828450754522487,
+      "win_by_scenario": {
+        "limpia": 0.0006549264150474212,
+        "sc_vsc": 0.0002929692028148376,
+        "roja": 0.002547461034158793
+      },
+      "starts_observed": 57,
+      "starts_missing": 2,
+      "maintained": 48,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "albon",
+      "code": "ALB",
+      "team": "williams",
+      "grid": 16,
+      "win": 0.000545745273832691,
+      "lead_lap1": 0.0005913259607639029,
+      "win_without_comparable_assumption": 0.0021826836091416012,
+      "win_by_scenario": {
+        "limpia": 0.0003754576091646661,
+        "sc_vsc": 0.000156618326015647,
+        "roja": 0.0016851307124975878
+      },
+      "starts_observed": 57,
+      "starts_missing": 4,
+      "maintained": 41,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "sainz",
+      "code": "SAI",
+      "team": "williams",
+      "grid": 17,
+      "win": 0.000502962432087895,
+      "lead_lap1": 0.0005156456084905717,
+      "win_without_comparable_assumption": 0.002072857027804592,
+      "win_by_scenario": {
+        "limpia": 0.0003378830577199723,
+        "sc_vsc": 0.00013809496146941082,
+        "roja": 0.0015810571428976007
+      },
+      "starts_observed": 58,
+      "starts_missing": 2,
+      "maintained": 40,
+      "poles": 1,
+      "poles_retained": 0
+    },
+    {
+      "driver": "alonso",
+      "code": "ALO",
+      "team": "aston_martin",
+      "grid": 18,
+      "win": 0.00043374151078014395,
+      "lead_lap1": 0.0004163919543253168,
+      "win_without_comparable_assumption": 0.0018391475168303309,
+      "win_by_scenario": {
+        "limpia": 0.00028475042978712604,
+        "sc_vsc": 0.00011416190437893794,
+        "roja": 0.0013859509247951464
+      },
+      "starts_observed": 61,
+      "starts_missing": 0,
+      "maintained": 51,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "perez",
+      "code": "PER",
+      "team": "cadillac",
+      "grid": 19,
+      "win": 0.0003638634121408171,
+      "lead_lap1": 0.0003816728106581549,
+      "win_without_comparable_assumption": 0.0015850947959373703,
+      "win_by_scenario": {
+        "limpia": 0.00023364117596654747,
+        "sc_vsc": 9.197908402358603e-05,
+        "roja": 0.0011802074367350105
+      },
+      "starts_observed": 35,
+      "starts_missing": 2,
+      "maintained": 25,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "bearman",
+      "code": "BEA",
+      "team": "haas",
+      "grid": 21,
+      "win": 0.00032915108553620005,
+      "lead_lap1": 0.00026894591174644124,
+      "win_without_comparable_assumption": 0.0015079635175098013,
+      "win_by_scenario": {
+        "limpia": 0.00020260768475479211,
+        "sc_vsc": 7.711797030213814e-05,
+        "roja": 0.0010963920393932364
+      },
+      "starts_observed": 40,
+      "starts_missing": 0,
+      "maintained": 29,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "bottas",
+      "code": "BOT",
+      "team": "cadillac",
+      "grid": 20,
+      "win": 0.0003127671503975781,
+      "lead_lap1": 0.00026620707288476774,
+      "win_without_comparable_assumption": 0.0013980808752194955,
+      "win_by_scenario": {
+        "limpia": 0.00019654872168304192,
+        "sc_vsc": 7.605405275610183e-05,
+        "roja": 0.0010286276389911884
+      },
+      "starts_observed": 37,
+      "starts_missing": 0,
+      "maintained": 21,
+      "poles": 0,
+      "poles_retained": 0
+    },
+    {
+      "driver": "stroll",
+      "code": "STR",
+      "team": "aston_martin",
+      "grid": 22,
+      "win": 0.000272770239999306,
+      "lead_lap1": 0.00024039613197022704,
+      "win_without_comparable_assumption": 0.0012794764246918005,
+      "win_by_scenario": {
+        "limpia": 0.0001645604137507855,
+        "sc_vsc": 6.166154095610914e-05,
+        "roja": 0.0009194175845026723
+      },
+      "starts_observed": 58,
+      "starts_missing": 2,
+      "maintained": 47,
+      "poles": 0,
+      "poles_retained": 0
+    }
+  ],
+  "norris_win_if_leads": 0.8217205667237718,
+  "norris_win_if_not_leads": 0.533149563597436
+}
