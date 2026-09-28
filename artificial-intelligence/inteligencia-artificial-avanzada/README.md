@@ -1,4 +1,17 @@
-# 6. Implementacion del Bucle de Interaccion Agente-Entorno (CartPole-v1)
+# Inteligencia Artificial Avanzada
+
+Ejercicios practicos del curso de Inteligencia Artificial Avanzada. Cada ejercicio vive en
+su propia carpeta numerada, con su codigo y su `requirements.txt`.
+
+## Indice de ejercicios
+
+| # | Ejercicio | Carpeta |
+|---|---|---|
+| 01 | [Bucle de interaccion agente-entorno (CartPole-v1)](#01-bucle-de-interaccion-agente-entorno-cartpole-v1) | [`01-bucle-interaccion-agente-entorno/`](01-bucle-interaccion-agente-entorno/) |
+
+---
+
+## 01. Bucle de Interaccion Agente-Entorno (CartPole-v1)
 
 Implementacion del problema clasico de control y equilibrio **CartPole-v1**, ejecutado
 bajo el estandar de simulacion interactiva de [Gymnasium](https://gymnasium.farama.org/).
@@ -10,7 +23,7 @@ El objetivo es contrastar de forma empirica la inferencia estatica del aprendiza
 supervisado frente a la toma de decisiones secuencial, donde cada accion ejecutada altera
 la dinamica fisica del entorno y condiciona las observaciones futuras.
 
-## Definicion de la tarea
+### Definicion de la tarea
 
 - **Vector de estado / observacion (S)**: espacio continuo de dimension 4:
   1. Posicion del carro (x).
@@ -34,10 +47,10 @@ la dinamica fisica del entorno y condiciona las observaciones futuras.
   estado -> terminacion episodica (`terminated` o `truncated`). Sirve de base para los
   metodos formales de aprendizaje por refuerzo de las siguientes semanas.
 
-## Como ejecutarlo
+### Como ejecutarlo
 
 ```bash
-cd artificial-intelligence/machine-learning/inteligencia-artificial-avanzada/06-bucle-interaccion-agente-entorno
+cd artificial-intelligence/inteligencia-artificial-avanzada/01-bucle-interaccion-agente-entorno
 python -m venv venv
 venv\Scripts\activate      # PowerShell/cmd en Windows; usa "source venv/bin/activate" en macOS/Linux
 pip install -r requirements.txt
