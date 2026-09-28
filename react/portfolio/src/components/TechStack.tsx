@@ -22,7 +22,7 @@ export default function TechStack() {
 
     const stack = [
         { category: t.techStack.frontend, icon: Layers, style: STYLES.sky, skills: ['React', 'TypeScript', 'Angular', 'Ionic', 'JavaScript', 'Tailwind CSS'] },
-        { category: t.techStack.backend, icon: Server, style: STYLES.pink, skills: ['.NET Core', '.NET Framework 4.8', 'C#', 'Python', 'Entity Framework Core', 'OData', 'GraphQL', 'Identity Server', 'Node.js'] },
+        { category: t.techStack.backend, icon: Server, style: STYLES.pink, skills: ['.NET Core', '.NET Framework 4.8', 'C#', 'Python', 'FastAPI', 'SQLAlchemy', 'Alembic', 'Pydantic', 'Entity Framework Core', 'OData', 'GraphQL', 'Identity Server', 'Node.js'] },
         { category: t.techStack.architecture, icon: Cloud, style: STYLES.mint, skills: ['Docker', 'Kubernetes', 'Rancher', 'Azure', 'Google Cloud', 'Vercel', 'Azure DevOps', 'GitHub Actions', 'Jenkins', 'Microservices', 'CI/CD'] },
         { category: t.techStack.databases, icon: Database, style: STYLES.yellow, skills: ['SQL Server', 'PostgreSQL', 'MongoDB', 'Redis', 'Firebase'] },
         { category: t.techStack.ai, icon: Bot, style: STYLES.coral, skills: ['Claude Code', 'GitHub Copilot', 'MCP', 'LLM APIs', 'Prompt Engineering', 'RAG', 'AI Agents', 'Notion'] },
