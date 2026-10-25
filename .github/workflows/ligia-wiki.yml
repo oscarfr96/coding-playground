@@ -1,0 +1,51 @@
+name: Publicar la wiki de Ligia
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stardew-valley-wiki-para-ligia/**'
+      - '.github/workflows/ligia-wiki.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: stardew-valley-wiki-para-ligia
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: stardew-valley-wiki-para-ligia/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - name: Preparar la subcarpeta de la wiki
+        working-directory: .
+        run: |
+          mkdir -p _site/stardew-valley-wiki-para-ligia
+          cp -r stardew-valley-wiki-para-ligia/dist/. _site/stardew-valley-wiki-para-ligia/
+          printf '%s' '<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=./stardew-valley-wiki-para-ligia/"><title>Wiki para Ligia</title></head><body><a href="./stardew-valley-wiki-para-ligia/">Abrir Stardew Valley Wiki para Ligia</a></body></html>' > _site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,11 @@
+# Ilustraciones personalizadas
+
+Herramienta utilizada: `image_gen`, modo integrado de Codex. Referencias: la foto de Ligia y la foto de Oscar aportadas para este proyecto. Las referencias originales no se publican. Los archivos finales se incluyen en `public/assets/`.
+
+## Portada — `public/assets/farm-hero.png`
+
+Create a wide landscape 1536x1024 pixel art illustration for the hero of a Spanish Stardew Valley fan wiki made with love for Ligia. References are real adult couple: first is Ligia, with dark blonde/light brown hair, green eyes, natural freckles, smiling; second Oscar with short brown hair, thin glasses, smiling. Depict them as recognizable charming Stardew Valley style 2D pixel characters, full body, sitting together on a wooden fence in the RIGHT HALF of a lush farm scene with a small red-roof cottage, vegetable beds, chickens, flowers, and distant mountains. Ligia wears lilac farmer overalls, Oscar a green shirt, both joyful; a tiny pink pixel heart floats above them. The LEFT HALF should be mostly soft open blue sky and meadow to allow text overlaid by website, no busy details there. Golden cozy afternoon, crisp handcrafted pixel clusters and dark pixel outlines, 16-bit SNES video game art, grass green, buttery yellow, warm earthy brown, pastel blue, no text, no watermark. This is an illustration, not a website mockup.
+
+## Pareja — `public/assets/ligia-oscar.png`
+
+Create a transparent background pixel art sprite of this adult couple as Stardew Valley 16-bit RPG characters, standing side by side holding hands, full body from head to feet. Image 1 is Ligia, long dark blonde/light brown hair, green eyes and a friendly smile, lavender overalls with white shirt, little flower in hair. Image 2 is Oscar, short brown hair, thin round glasses, green shirt, dark trousers. Preserve recognizable facial characteristics translated into pixel art. Tiny pink pixel heart between their heads. Centered composition, characters at same ground level, crisp visible square pixel grid, dark brown outlines, charming official Stardew Valley portrait aesthetic. No background, no text, no shadows outside characters. Intended as small website mascot pair. Give the couple ample transparent margins.
