@@ -284,6 +284,49 @@ export default function App() {
   const [day, setDay] = useSaved("day", 1);
   const searchRef = useRef(null);
   const contentRef = useRef(null);
+  const sidebarRef = useRef(null);
+  const menuButtonRef = useRef(null);
+  const closeMenuRef = useRef(null);
+  const closeNavigation = () => {
+    setMenu(false);
+    requestAnimationFrame(() => menuButtonRef.current?.focus());
+  };
+  useEffect(() => {
+    if (!menu) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeMenuRef.current?.focus();
+    const keyboard = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setMenu(false);
+        requestAnimationFrame(() => menuButtonRef.current?.focus());
+      }
+      if (event.key === "Tab") {
+        const buttons = sidebarRef.current?.querySelectorAll("button, a[href]");
+        if (!buttons?.length) return;
+        const first = buttons[0];
+        const last = buttons[buttons.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    const resize = () => {
+      if (window.innerWidth > 760) setMenu(false);
+    };
+    document.addEventListener("keydown", keyboard);
+    window.addEventListener("resize", resize);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", keyboard);
+      window.removeEventListener("resize", resize);
+    };
+  }, [menu]);
   const safeSeason = seasons.includes(season) ? season : "primavera";
   const safeDay = Number.isInteger(day) && day >= 1 && day <= 28 ? day : 1;
   useEffect(() => {
@@ -354,13 +397,24 @@ export default function App() {
         <button
           className="menu-backdrop"
           aria-label="Cerrar navegación"
-          onClick={() => setMenu(false)}
+          tabIndex={-1}
+          onClick={closeNavigation}
         />
       )}
       <aside
+        id="main-navigation"
+        ref={sidebarRef}
         className={`sidebar ${menu ? "open" : ""}`}
         aria-label="Navegación principal"
       >
+        <button
+          ref={closeMenuRef}
+          className="close-menu icon-button"
+          onClick={closeNavigation}
+          aria-label="Cerrar menú"
+        >
+          <X size={23} />
+        </button>
         <button className="brand" onClick={() => go("inicio")}>
           <span className="brand-flower">🌻</span>
           <span className="brand-title">
@@ -430,13 +484,15 @@ export default function App() {
           Un regalo de Oscar para ti <Heart size={12} />
         </button>
       </aside>
-      <div className="workspace">
+      <div className="workspace" inert={menu || undefined}>
         <header className="topbar">
           <button
             className="mobile-menu icon-button"
+            ref={menuButtonRef}
             onClick={() => setMenu(!menu)}
             aria-label="Abrir navegación"
             aria-expanded={menu}
+            aria-controls="main-navigation"
           >
             <Menu size={22} />
           </button>
@@ -1044,36 +1100,38 @@ function Catalog({ type, go, card }) {
         />
       ) : (
         <div className="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>{isCrops ? "Cultivo" : isFish ? "Pez" : "Habitante"}</th>
-                <th>
+          <table role="table">
+            <thead role="rowgroup">
+              <tr role="row">
+                <th scope="col" role="columnheader">
+                  {isCrops ? "Cultivo" : isFish ? "Pez" : "Habitante"}
+                </th>
+                <th scope="col" role="columnheader">
                   {isCrops
                     ? "Estación"
                     : isFish
                       ? "Dónde encontrarlo"
                       : "Cumpleaños"}
                 </th>
-                <th>
+                <th scope="col" role="columnheader">
                   {isCrops ? "Crecimiento" : isFish ? "Cuándo" : "Le encanta"}
                 </th>
-                <th>
+                <th scope="col" role="columnheader">
                   {isCrops
                     ? "Venta base"
                     : isFish
                       ? "Clima / precio"
                       : "Amistad"}
                 </th>
-                <th>
+                <th scope="col" role="columnheader">
                   <span className="sr-only">Ver ficha</span>
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody role="rowgroup">
               {visible.map((item, i) => (
-                <tr key={item.id}>
-                  <td>
+                <tr key={item.id} role="row">
+                  <td role="cell" className="catalog-name-cell">
                     <button
                       className="table-name"
                       onClick={() =>
@@ -1092,14 +1150,28 @@ function Catalog({ type, go, card }) {
                       {item.name}
                     </button>
                   </td>
-                  <td>
+                  <td
+                    role="cell"
+                    data-label={
+                      isCrops
+                        ? "Estación"
+                        : isFish
+                          ? "Dónde encontrarlo"
+                          : "Cumpleaños"
+                    }
+                  >
                     {isCrops
                       ? seasonText(item.season)
                       : isFish
                         ? item.location
                         : `${item.birthday.day} de ${seasonNames[item.birthday.season]?.toLowerCase()}`}
                   </td>
-                  <td>
+                  <td
+                    role="cell"
+                    data-label={
+                      isCrops ? "Crecimiento" : isFish ? "Cuándo" : "Le encanta"
+                    }
+                  >
                     {isCrops ? (
                       <>
                         {item.days} días
@@ -1118,7 +1190,16 @@ function Catalog({ type, go, card }) {
                       item.loves.slice(0, 3).join(" · ")
                     )}
                   </td>
-                  <td>
+                  <td
+                    role="cell"
+                    data-label={
+                      isCrops
+                        ? "Venta base"
+                        : isFish
+                          ? "Clima / precio"
+                          : "Amistad"
+                    }
+                  >
                     {isCrops ? (
                       <span className="gold">{pretty(item.sell)} g</span>
                     ) : isFish ? (
@@ -1132,7 +1213,7 @@ function Catalog({ type, go, card }) {
                       "Amistad"
                     )}
                   </td>
-                  <td>
+                  <td role="cell" className="catalog-action-cell">
                     <button
                       className="icon-button"
                       aria-label={`Ver ficha de ${item.name}`}
@@ -1142,6 +1223,7 @@ function Catalog({ type, go, card }) {
                         )
                       }
                     >
+                      <span className="mobile-card-link">Ver ficha</span>
                       <ChevronRight size={17} />
                     </button>
                   </td>
@@ -1223,7 +1305,7 @@ function Calendar({ season, day, setSeason, setDay, go }) {
             })}
           </div>
         </div>
-        <aside className="day-detail">
+        <aside className="day-detail" aria-live="polite" aria-atomic="true">
           <span className="big-date">{day}</span>
           <h2>de {seasonNames[season].toLowerCase()}</h2>
           {birthdays.map((v) => (
