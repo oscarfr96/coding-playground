@@ -1,6 +1,7 @@
 """Build bilingual, text-selectable CVs. Requires reportlab (pip install reportlab)."""
 import json
 import os
+import re
 import sys
 from html import escape
 from pathlib import Path
@@ -67,8 +68,31 @@ def clean(value):
     return value.replace('—', '-').replace('–', '-').replace('\u2011', '-')
 
 
-def para(value, style='body'):
-    return Paragraph(escape(clean(value)), STYLES[style])
+def para(value, style='body', keywords=()):
+    text = clean(value)
+    if not keywords:
+        return Paragraph(escape(text), STYLES[style])
+    # Match complete terms before escaping, preserving punctuation and PDF text.
+    pattern = re.compile(r'(?<!\w)(?:' + '|'.join(
+        re.escape(clean(word)) for word in sorted(keywords, key=len, reverse=True)
+    ) + r')(?!\w)', re.IGNORECASE)
+    parts = []
+    cursor = 0
+    for match in pattern.finditer(text):
+        parts.extend([escape(text[cursor:match.start()]), f'<b>{escape(match.group())}</b>'])
+        cursor = match.end()
+    parts.append(escape(text[cursor:]))
+    return Paragraph(''.join(parts), STYLES[style])
+
+
+EXPERIENCE_HIGHLIGHTS = [
+    ('.NET Core', 'microservices', 'microservicios', 'Clean Architecture'),
+    ('React', 'TypeScript', 'Identity Server', 'Redis'),
+    ('CI/CD', 'Docker', 'Kubernetes'),
+    ('xUnit', 'k6'),
+    ('Claude Code', 'MCP', 'Spec-Driven Development'),
+    ('RAG', 'Python and FastAPI', 'Python y FastAPI', 'LangChain and LangGraph', 'LangChain y LangGraph'),
+]
 
 
 def labeled(label, value):
@@ -152,14 +176,16 @@ def build(language, t):
     story.append(section(labels['experience'], 'pink'))
     current = t['experience']['educaria']
     story.extend([para(f'{current["title"]} | {current["company"]}', 'job'),
-                  para(f'{current["period"]} · {t["hero"]["location"]}', 'meta'), para(current['summary'])])
-    for point in current['points']:
-        story.append(para(f'• {point}', 'bullet'))
+                  para(f'{current["period"]} · {t["hero"]["location"]}', 'meta'),
+                  para(current['summary'], keywords=('Alexia', '2M+'))])
+    for point, highlights in zip(current['points'], EXPERIENCE_HIGHLIGHTS, strict=True):
+        story.append(para(f'• {point}', 'bullet', keywords=highlights))
     previous = t['experience']['nttData']
     story.extend([para(f'{previous["title"]} | {previous["company"]}', 'job'),
-                  para(f'{previous["period"]} · {t["hero"]["location"]}', 'meta'), para(previous['summary'])])
+                  para(f'{previous["period"]} · {t["hero"]["location"]}', 'meta'),
+                  para(previous['summary'], keywords=('Repsol',))])
     for point in previous['points'][:3]:
-        story.append(para(f'• {point}', 'bullet'))
+        story.append(para(f'• {point}', 'bullet', keywords=('Angular',)))
 
     story.extend([PageBreak(), section(labels['skills'])])
     skills = {
@@ -178,7 +204,8 @@ def build(language, t):
         # Keep the CV concise; full implementation details live in the portfolio.
         story.append(KeepTogether([
             para(project['title'], 'job'), para(project['tagline'], 'meta'),
-            para(project['built'][0]), para(project['built'][1]),
+            para(project['built'][0], keywords=('FastAPI', 'Cloud Run', 'Poisson GLM', 'GLM de Poisson')),
+            para(project['built'][1], keywords=('Docker', 'Compute Engine', 'Dixon-Coles')),
         ]))
     story.append(section(labels['education'], 'yellow'))
     for degree in t['education']['degrees']:
