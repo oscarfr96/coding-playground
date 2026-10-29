@@ -22,11 +22,11 @@ export default function TechStack() {
 
     const stack = [
         { category: t.techStack.frontend, icon: Layers, style: STYLES.sky, skills: ['React', 'TypeScript', 'Angular', 'Ionic', 'JavaScript', 'Tailwind CSS'] },
-        { category: t.techStack.backend, icon: Server, style: STYLES.pink, skills: ['.NET Core', '.NET Framework 4.8', 'C#', 'Python', 'SQLAlchemy', 'Alembic', 'Pydantic', 'Entity Framework Core', 'OData', 'GraphQL', 'Identity Server', 'Node.js'] },
-        { category: t.techStack.architecture, icon: Cloud, style: STYLES.mint, skills: ['Docker', 'Kubernetes', 'Rancher', 'Azure', 'Google Cloud', 'Vercel', 'Azure DevOps', 'GitHub Actions', 'Jenkins', 'Microservices', 'CI/CD'] },
-        { category: t.techStack.databases, icon: Database, style: STYLES.yellow, skills: ['SQL Server', 'PostgreSQL', 'MongoDB', 'Redis', 'Firebase'] },
-        { category: t.techStack.ai, icon: Bot, style: STYLES.coral, skills: ['Claude Code', 'GitHub Copilot', 'MCP', 'LLM APIs', 'Prompt Engineering', 'RAG', 'AI Agents', 'Notion'] },
-        { category: t.techStack.testing, icon: FlaskConical, style: STYLES.sky, skills: ['xUnit', 'Moq', 'BDD · Gherkin', 'SonarQube'] },
+        { category: t.techStack.backend, icon: Server, style: STYLES.pink, skills: ['C#', '.NET', 'Entity Framework Core', 'Python', 'FastAPI', 'SQLAlchemy', 'Identity Server', 'Node.js', 'OData', 'GraphQL'] },
+        { category: t.techStack.architecture, icon: Cloud, style: STYLES.mint, skills: ['Microservices', 'Hexagonal Architecture', 'Clean Architecture', 'SOLID', 'Docker', 'Kubernetes', 'Rancher', 'CI/CD', 'Azure DevOps', 'GitHub Actions', 'Azure', 'Google Cloud', 'Vercel'] },
+        { category: t.techStack.databases, icon: Database, style: STYLES.yellow, skills: ['SQL Server', 'PostgreSQL', 'Redis', 'Firestore', 'MongoDB'] },
+        { category: t.techStack.ai, icon: Bot, style: STYLES.coral, skills: ['Claude Code', 'MCP', 'Spec-Driven Development', 'RAG', 'LangChain', 'LangGraph', 'GitHub Copilot', 'Prompt Engineering', 'AI Agents'] },
+        { category: t.techStack.testing, icon: FlaskConical, style: STYLES.sky, skills: ['xUnit', 'Moq', 'k6', 'BDD · Gherkin', 'SonarQube'] },
     ];
 
     return (

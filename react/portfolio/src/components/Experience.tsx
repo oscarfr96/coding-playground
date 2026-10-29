@@ -4,8 +4,8 @@ import SectionHeading from './SectionHeading';
 
 const EDUCARIA_KEYWORDS = [
     'Alexia', '2M+', '.NET Core', 'Hexagonal Architecture', 'Clean Architecture', 'SOLID', 'DDD', 'CQRS',
-    'Identity Server', 'Redis', 'Docker', 'Kubernetes', 'Rancher', 'xUnit', 'Gherkin', 'Claude Code', 'MCP', 'Spec-Driven Development', 'RAG',
-    'microservices-based system', 'AI-assisted development',
+    '.NET Framework 4.8', 'Entity Framework Core', 'Identity Server', 'Redis', 'Docker', 'Kubernetes', 'Rancher', 'xUnit', 'k6', 'Claude Code', 'MCP', 'Spec-Driven Development', 'RAG', 'Python', 'FastAPI',
+    'LangChain', 'LangGraph', 'grounding', 'AI-assisted development',
     'microservicios', 'asistido por IA',
 ];
 
@@ -25,7 +25,7 @@ export default function Experience() {
             period: t.experience.educaria.period,
             summary: t.experience.educaria.summary,
             points: t.experience.educaria.points,
-            technologies: ['C#', '.NET Core', 'Entity Framework Core', 'OData', 'Identity Server', 'React', 'TypeScript', 'Ionic', 'SQL Server', 'Redis', 'Azure', 'Docker', 'Kubernetes', 'Rancher', 'GraphQL', 'xUnit', 'Claude Code'],
+            technologies: ['.NET Core', 'Entity Framework Core', 'React', 'TypeScript', 'Identity Server', 'Redis', 'Azure DevOps', 'Docker', 'Kubernetes', 'Rancher', 'xUnit', 'k6', 'Claude Code', 'MCP', 'Python', 'FastAPI'],
             keywords: EDUCARIA_KEYWORDS,
         },
         {
@@ -44,9 +44,9 @@ export default function Experience() {
             <SectionHeading>{t.experience.title}</SectionHeading>
 
             <div className="space-y-5">
-                {experiences.map((exp, index) => (
+                {experiences.map(exp => (
                     <div
-                        key={index}
+                        key={exp.company}
                         className="rounded-[var(--radius-lg)] border-2 border-border bg-surface p-6 transition-[transform,box-shadow] duration-150 ease-[var(--ease-out)] hover:-translate-y-1 hover:rotate-[-0.4deg] hover:shadow-[6px_6px_0_0_var(--color-info-bright)] md:grid md:grid-cols-4 md:gap-8"
                     >
                         <div className="mb-2 pt-1 text-sm font-semibold text-info-strong md:col-span-1 md:mb-0">

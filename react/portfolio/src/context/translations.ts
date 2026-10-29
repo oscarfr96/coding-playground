@@ -6,7 +6,7 @@ export const en = {
     hero: {
         greeting: "Hi, I'm",
         name: "Óscar Fraile",
-        role: "Software Engineer",
+        role: "Full Stack Engineer",
         tagline: "I build software,",
         taglineAccent: "from idea to production.",
         bio: "I'm a software engineer who enjoys working on the backend, figuring out how the pieces fit together, and turning ideas into working products. I also care about thoughtful design and making those products intuitive to use. Lately, I've been building tools with AI.",
@@ -21,12 +21,12 @@ export const en = {
             period: "2019 – Present",
             summary: "Building Alexia — the leading EdTech platform for schools and universities in Spain and Latin America, with 2M+ active users across web, Android, and iOS.",
             points: [
-                "Led the evolution from a monolith to a microservices-based system with .NET Core (Hexagonal Architecture, Clean Architecture, SOLID, DDD, CQRS).",
-                "Secured the platform with Identity Server and scaled performance with Redis caching.",
-                "Own the DevOps lifecycle: Docker containers, CI/CD pipelines on Azure DevOps, and Kubernetes orchestration managed with Rancher.",
-                "Built test coverage with xUnit and BDD scenarios in Gherkin.",
-                "Driving AI-assisted development — Claude Code agents, MCP workflows, and a shared vault of skills, roles, and Spec-Driven Development.",
-                "Built a RAG-powered chatbot to assist teachers and students."
+                "Contributing to the transition from a .NET Framework 4.8 monolith to distributed microservices with .NET Core and Entity Framework Core, applying Hexagonal Architecture, Clean Architecture, SOLID, DDD and CQRS.",
+                "Full stack development with React and TypeScript, authentication with Identity Server and caching with Redis.",
+                "CI/CD pipelines in Azure DevOps, Docker containers and deployments to Kubernetes managed with Rancher.",
+                "Unit tests with xUnit, integration tests, and API and load-testing scenarios with k6.",
+                "AI-assisted development with Claude Code, MCP and shared skills, using Spec-Driven Development to guide implementation and review with clear requirements and acceptance criteria.",
+                "Development of a RAG chatbot with Python and FastAPI for teachers and students, supported by knowledge of chunking, embeddings, metadata, reranking and grounding, as well as agent orchestration with LangChain and LangGraph, query rewriting and context management to balance response quality, latency and cost."
             ]
         },
         nttData: {
@@ -72,8 +72,8 @@ export const en = {
             { year: "2026", title: "Microsoft Certified: Azure Developer Associate", issuer: "Microsoft", link: "https://learn.microsoft.com/es-es/users/oscarfraile-4162/credentials/71071e593e7051f5?ref=https%3A%2F%2Fwww.linkedin.com%2F" },
             { year: "2026", title: "Claude Code in Action", issuer: "Anthropic", link: "https://verify.skilljar.com/c/yp5g3ps52vuy" },
             { year: "2026", title: "Machine Learning with Python", issuer: "IBM", link: "https://coursera.org/share/6bfc550c07dc8e0f41ddacc9ffc5d469" },
+            { year: "2026", title: "Mathematics for Understanding the World: Models, Data, and Artificial Intelligence", issuer: "UDIMA — Universidad a Distancia de Madrid", link: "https://portal.etitulo.com/visor.aspx?o=p&id=jpJEt" },
             { year: "2024", title: "What The Hack: Azure OpenAI Fundamentals", issuer: "Código Facilito", link: "https://codigofacilito.com/certificates/facb5574-782f-4688-8eab-ea874ec2d28d" },
-            { year: "2024", title: "Developing Back-End Apps with Node.js and Express", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/verify/GZUFR8WVTSAM" },
             { year: "2018", title: "Cambridge English: Advanced (CAE) — CEFR C1", issuer: "University of Cambridge", link: "" }
         ]
     },
@@ -145,7 +145,7 @@ export const es = {
     hero: {
         greeting: "Hola, soy",
         name: "Óscar Fraile",
-        role: "Software Engineer",
+        role: "Full Stack Engineer",
         tagline: "Construyo software,",
         taglineAccent: "desde la idea hasta producción.",
         bio: "Soy ingeniero de software. Me gusta trabajar en el backend, pensar cómo encajan las piezas y convertir ideas en productos que funcionan. También cuido el diseño y la experiencia de usuario para que esos productos resulten intuitivos. Últimamente, construyo herramientas con IA.",
@@ -160,12 +160,12 @@ export const es = {
             period: "2019 – Actualidad",
             summary: "Construyendo Alexia — la plataforma EdTech líder para colegios y universidades en España y Latinoamérica, con 2M+ de usuarios activos en web, Android e iOS.",
             points: [
-                "Lideré la evolución de un monolito a un sistema basado en microservicios con .NET Core (Hexagonal Architecture, Clean Architecture, SOLID, DDD, CQRS).",
-                "Aseguré la plataforma con Identity Server y escalé el rendimiento con caching en Redis.",
-                "Gestiono el ciclo DevOps: contenedores Docker, pipelines CI/CD en Azure DevOps y orquestación en Kubernetes gestionada con Rancher.",
-                "Construí cobertura de tests con xUnit y escenarios BDD en Gherkin.",
-                "Impulsando el desarrollo asistido por IA — agentes de Claude Code, flujos MCP y un vault compartido de skills, roles y Spec-Driven Development.",
-                "Desarrollé un chatbot con RAG para asistencia a profesores y alumnos."
+                "Participo en la transición de un monolito en .NET Framework 4.8 a microservicios distribuidos con .NET Core y Entity Framework Core, aplicando arquitectura hexagonal, Clean Architecture, SOLID, DDD y CQRS.",
+                "Desarrollo full stack con React y TypeScript, autenticación con Identity Server y caché con Redis.",
+                "Pipelines CI/CD en Azure DevOps, contenedores Docker y despliegues en Kubernetes gestionados con Rancher.",
+                "Tests unitarios con xUnit, pruebas de integración y escenarios de API y carga con k6.",
+                "Desarrollo asistido por IA con Claude Code, MCP y skills compartidas, aplicando Spec-Driven Development para guiar la implementación y la revisión con requisitos y criterios de aceptación claros.",
+                "Desarrollo de un chatbot RAG con Python y FastAPI para profesores y alumnos, con conocimientos de chunking, embeddings, metadatos, reranking y grounding, así como de orquestación de agentes con LangChain y LangGraph, reformulación de consultas y gestión de contexto para equilibrar calidad de respuesta, latencia y coste."
             ]
         },
         nttData: {
@@ -211,8 +211,8 @@ export const es = {
             { year: "2026", title: "Microsoft Certified: Azure Developer Associate", issuer: "Microsoft", link: "https://learn.microsoft.com/es-es/users/oscarfraile-4162/credentials/71071e593e7051f5?ref=https%3A%2F%2Fwww.linkedin.com%2F" },
             { year: "2026", title: "Claude Code in Action", issuer: "Anthropic", link: "https://verify.skilljar.com/c/yp5g3ps52vuy" },
             { year: "2026", title: "Machine Learning with Python", issuer: "IBM", link: "https://coursera.org/share/6bfc550c07dc8e0f41ddacc9ffc5d469" },
+            { year: "2026", title: "Mathematics for Understanding the World: Models, Data, and Artificial Intelligence", issuer: "UDIMA — Universidad a Distancia de Madrid", link: "https://portal.etitulo.com/visor.aspx?o=p&id=jpJEt" },
             { year: "2024", title: "What The Hack: Azure OpenAI Fundamentals", issuer: "Código Facilito", link: "https://codigofacilito.com/certificates/facb5574-782f-4688-8eab-ea874ec2d28d" },
-            { year: "2024", title: "Developing Back-End Apps with Node.js and Express", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/verify/GZUFR8WVTSAM" },
             { year: "2018", title: "Cambridge English: Advanced (CAE) — CEFR C1", issuer: "University of Cambridge", link: "" }
         ]
     },

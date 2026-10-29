@@ -40,3 +40,16 @@ npm run dev
 npm run build   # Type-check + production build
 npm run lint    # ESLint
 ```
+
+## Update the downloadable CVs
+
+The English and Spanish PDFs reuse the experience and profile copy from
+`src/context/translations.ts`. After updating that copy, run:
+
+```bash
+pip install reportlab
+npm run cv
+```
+
+Use `PYTHON` to select a Python executable if needed. The generator writes both
+CVs to `public/`; run it before `npm run build` to include the updated downloads.
