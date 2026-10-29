@@ -9,10 +9,11 @@ from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
+from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether,
+    SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether, Flowable,
 )
 
 ROOT = Path(sys.argv[1])
@@ -30,16 +31,22 @@ else:
 INK = colors.HexColor('#2f2a20')
 MUTED = colors.HexColor('#635e51')
 ACCENT = colors.HexColor('#1f6e91')
+PASTELS = {
+    'blue': colors.HexColor('#e3f4fb'),
+    'pink': colors.HexColor('#fde2ee'),
+    'mint': colors.HexColor('#e2f5ea'),
+    'yellow': colors.HexColor('#fcefbf'),
+}
 STYLES = {
     'name': ParagraphStyle('name', fontName=BOLD, fontSize=26, leading=30, textColor=INK, spaceAfter=4),
     'role': ParagraphStyle('role', fontName=FONT, fontSize=13, leading=17, textColor=ACCENT, spaceAfter=8),
     'contact': ParagraphStyle('contact', fontName=FONT, fontSize=8.5, leading=13, textColor=MUTED, spaceAfter=12),
-    'section': ParagraphStyle('section', fontName=BOLD, fontSize=13, leading=18, textColor=ACCENT, spaceBefore=12, spaceAfter=7, keepWithNext=True),
+    'section': ParagraphStyle('section', fontName=BOLD, fontSize=12, leading=17, textColor=INK, spaceBefore=16, spaceAfter=11, borderPadding=(4, 8, 4, 8), borderRadius=5, keepWithNext=True),
     'job': ParagraphStyle('job', fontName=BOLD, fontSize=11, leading=15, textColor=INK, spaceBefore=6, spaceAfter=3, keepWithNext=True),
     'meta': ParagraphStyle('meta', fontName=FONT, fontSize=9, leading=12, textColor=MUTED, spaceAfter=6, keepWithNext=True),
     'sub': ParagraphStyle('sub', fontName=BOLD, fontSize=9.6, leading=13, textColor=INK, spaceBefore=7, spaceAfter=3, keepWithNext=True),
-    'body': ParagraphStyle('body', fontName=FONT, fontSize=9.3, leading=13.3, textColor=INK, spaceAfter=5, alignment=TA_LEFT),
-    'bullet': ParagraphStyle('bullet', fontName=FONT, fontSize=9.3, leading=13.3, textColor=INK, leftIndent=11, firstLineIndent=-9, spaceAfter=3),
+    'body': ParagraphStyle('body', fontName=FONT, fontSize=10, leading=14, textColor=INK, spaceAfter=5, alignment=TA_LEFT),
+    'bullet': ParagraphStyle('bullet', fontName=FONT, fontSize=10, leading=14, textColor=INK, leftIndent=11, firstLineIndent=-9, spaceAfter=4),
 }
 
 LABELS = {
@@ -68,6 +75,60 @@ def labeled(label, value):
     return Paragraph(f'<b>{escape(clean(label))}:</b> {escape(clean(value))}', STYLES['body'])
 
 
+def section(title, tone='blue'):
+    style = ParagraphStyle(f'section-{tone}', parent=STYLES['section'], backColor=PASTELS[tone])
+    return Paragraph(escape(title), style)
+
+
+class ProfileHeader(Flowable):
+    """Decorative portrait beside real PDF text; all career content stays single-column."""
+
+    def __init__(self, translation):
+        super().__init__()
+        self.translation = translation
+        self.height = 132
+
+    def wrap(self, available_width, available_height):
+        self.width = available_width
+        return self.width, self.height
+
+    def draw(self):
+        canvas = self.canv
+        canvas.saveState()
+        canvas.setFillColor(PASTELS['blue'])
+        canvas.roundRect(0, 0, self.width, self.height, 14, fill=1, stroke=0)
+        hero = self.translation['hero']
+        contact = (
+            f'{escape(hero["location"])} · '
+            '<link href="mailto:oscar.fm.96@gmail.com">oscar.fm.96@gmail.com</link><br/>'
+            '<link href="https://github.com/oscarfr96">github.com/oscarfr96</link><br/>'
+            '<link href="https://oscar-fraile-portfolio.vercel.app">oscar-fraile-portfolio.vercel.app</link>'
+        )
+        blocks = [para(hero['name'], 'name'), para(hero['role'], 'role'),
+                  Paragraph(contact, STYLES['contact'])]
+        y = self.height - 15
+        for block in blocks:
+            _, height = block.wrap(self.width - 146, self.height)
+            y -= height
+            block.drawOn(canvas, 16, y)
+            y -= block.getSpaceAfter()
+
+        # Use the original transparent portrait, without generative edits.
+        photo_width = 96
+        photo_height = photo_width * 720 / 661
+        photo_x, photo_y = self.width - photo_width - 12, 13
+        canvas.setFillColor(colors.HexColor('#8fd3ef'))
+        canvas.roundRect(photo_x, photo_y, photo_width, photo_height, 12, fill=1, stroke=0)
+        canvas.saveState()
+        clip = canvas.beginPath()
+        clip.roundRect(photo_x, photo_y, photo_width, photo_height, 12)
+        canvas.clipPath(clip, stroke=0, fill=0)
+        canvas.drawImage(ImageReader(str(ROOT / 'src/assets/oscar-cutout.png')),
+                         photo_x, photo_y, width=photo_width, height=photo_height, mask='auto')
+        canvas.restoreState()
+        canvas.restoreState()
+
+
 def footer(canvas, doc):
     canvas.setStrokeColor(colors.HexColor('#ddd2b4'))
     canvas.line(42, 37, A4[0] - 42, 37)
@@ -77,17 +138,18 @@ def footer(canvas, doc):
     canvas.drawRightString(A4[0] - 42, 24, f'{doc.page} / 2')
 
 
+class CVDocument(SimpleDocTemplate):
+    def afterPage(self):
+        # Append footer text after the body in the PDF content stream.
+        footer(self.canv, self)
+
+
 def build(language, t):
     labels = LABELS[language]
     target = ROOT / 'public' / ('cv-oscar-fraile-es.pdf' if language == 'es' else 'cv-oscar-fraile.pdf')
-    story = [para(t['hero']['name'], 'name'), para(t['hero']['role'], 'role')]
-    story.append(Paragraph(
-        f'{escape(t["hero"]["location"])} · <link href="mailto:oscar.fm.96@gmail.com">oscar.fm.96@gmail.com</link><br/>'
-        '<link href="https://github.com/oscarfr96">github.com/oscarfr96</link> · '
-        '<link href="https://oscar-fraile-portfolio.vercel.app">oscar-fraile-portfolio.vercel.app</link>',
-        STYLES['contact']))
-    story.extend([para(labels['profile'], 'section'), para(t['hero']['bio'])])
-    story.append(para(labels['experience'], 'section'))
+    story = [ProfileHeader(t), Spacer(1, 4)]
+    story.extend([section(labels['profile']), para(t['hero']['bio'])])
+    story.append(section(labels['experience'], 'pink'))
     current = t['experience']['educaria']
     story.extend([para(f'{current["title"]} | {current["company"]}', 'job'),
                   para(f'{current["period"]} · {t["hero"]["location"]}', 'meta'), para(current['summary'])])
@@ -99,7 +161,7 @@ def build(language, t):
     for point in previous['points'][:3]:
         story.append(para(f'• {point}', 'bullet'))
 
-    story.extend([PageBreak(), para(labels['skills'], 'section')])
+    story.extend([PageBreak(), section(labels['skills'])])
     skills = {
         'frontend': 'React, TypeScript, Angular, Ionic, JavaScript, Tailwind CSS',
         'backend': 'C#, .NET, Entity Framework Core, Python, FastAPI, SQLAlchemy, Identity Server, Node.js, OData, GraphQL',
@@ -110,7 +172,7 @@ def build(language, t):
     }
     for key, value in skills.items():
         story.append(labeled(t['techStack'][key], value))
-    story.append(para(labels['projects'], 'section'))
+    story.append(section(labels['projects'], 'mint'))
     for key in ['gredio', 'worldCup']:
         project = t['projects'][key]
         # Keep the CV concise; full implementation details live in the portfolio.
@@ -118,13 +180,13 @@ def build(language, t):
             para(project['title'], 'job'), para(project['tagline'], 'meta'),
             para(project['built'][0]), para(project['built'][1]),
         ]))
-    story.append(para(labels['education'], 'section'))
+    story.append(section(labels['education'], 'yellow'))
     for degree in t['education']['degrees']:
         story.append(KeepTogether([
             para(f'{degree["degree"]} | {degree["period"]}', 'sub'),
             para(degree['institution']),
         ]))
-    story.append(para(labels['certs'], 'section'))
+    story.append(section(labels['certs'], 'pink'))
     for cert in t['education']['certifications']:
         value = f'{cert["title"]} · {cert["issuer"]} · {cert["year"]}'
         text = escape(clean(value))
@@ -132,10 +194,10 @@ def build(language, t):
             text = f'<link href="{escape(cert["link"], quote=True)}">{text}</link>'
         story.append(Paragraph(text, STYLES['body']))
     story.extend([Spacer(1, 4), labeled(labels['languages'], labels['languagesText'])])
-    doc = SimpleDocTemplate(str(target), pagesize=A4, leftMargin=42, rightMargin=42,
+    doc = CVDocument(str(target), pagesize=A4, leftMargin=42, rightMargin=42,
                             topMargin=36, bottomMargin=49, title='Óscar Fraile | Full Stack Engineer',
                             author='Óscar Fraile')
-    doc.build(story, onFirstPage=footer, onLaterPages=footer)
+    doc.build(story)
     print(f'Generated {target.name}')
 
 
