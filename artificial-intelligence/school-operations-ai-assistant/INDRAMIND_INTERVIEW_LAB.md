@@ -502,7 +502,7 @@ Para iniciar el MCP Server en desarrollo:
 uv run --env-file .env python -m school_assistant.mcp_server
 ```
 
-La POC ya expone una herramienta MCP protegida. La conexión de un MCP Client con un LLM y el ciclo automático de solicitudes/respuestas de tool calling corresponden al siguiente bloque, **Agente + tool calling + seguridad**.
+La POC ya expone dos herramientas MCP protegidas. El agente descubre las herramientas disponibles, presenta solo una allowlist revisada al modelo y valida de nuevo nombre y argumentos antes de ejecutarlas. El MCP Server valida otra vez el token y aplica autorización en la herramienta de datos de alumnos.
 
 ---
 
@@ -559,6 +559,13 @@ Debemos estudiar:
 
 No es necesario construir un RAG sofisticado.
 
+## Implementación actual de la POC
+
+- `services/documents.py` divide documentos Markdown locales en párrafos acotados y los ordena por coincidencia de términos.
+- MCP publica `search_school_documents`; el modelo recibe el resultado como contexto y debe citar el nombre del archivo.
+- Es una recuperación léxica sencilla. **No usa embeddings ni una base vectorial**, por lo que no entiende bien sinónimos o paráfrasis. El diagrama de arriba muestra un RAG vectorial posible, no lo que ya está desplegado en esta POC.
+- Los documentos incluidos son ficticios. Sus contenidos se consideran datos no confiables, nunca instrucciones para el backend.
+
 ---
 
 # 9. Observabilidad
@@ -612,6 +619,10 @@ Debemos hablar también de:
 - sampling;
 - políticas de retención.
 
+## Instrumentación incluida
+
+La API agrega un `request_id` generado por el servidor y lo devuelve en `X-Request-ID`. Los logs JSON registran plantilla de ruta, estado y latencia HTTP; cada llamada al modelo añade modelo, versión del prompt, latencia y tokens, y cada tool registra nombre, duración y resultado. No se registran prompts, argumentos, tokens de acceso ni fichas de alumnos. Todavía no hay OpenTelemetry ni trazas distribuidas; el ID permite correlacionar los logs de esta POC.
+
 ---
 
 # 10. Cómo sabremos si funciona bien
@@ -627,6 +638,8 @@ No demuestra:
 - que resolviera la necesidad del usuario.
 
 Por eso tendremos **evals**.
+
+El repositorio incluye `tests/evals/golden_scenarios.json` con 20 casos iniciales. Las pruebas offline validan el formato del conjunto y que las consultas RAG recuperen documentos. La selección real de tools y la calidad de respuestas del LLM todavía requieren una evaluación online que consume llamadas y presupuesto.
 
 Ejemplo:
 
@@ -1265,3 +1278,25 @@ Empieza haciendo lo siguiente:
 Recuerda:
 
 > **Tú enseñas. Yo escribo el código.**
+
+---
+
+# 24. Estado de la POC (2026-09-30)
+
+El recorrido mínimo para entrevista queda implementado:
+
+```text
+OIDC/Keycloak -> FastAPI -> OpenAI Responses API -> allowlist
+                                      -> MCP client/server
+                                           -> PostgreSQL: resumen autorizado
+                                           -> RAG local: documentos ficticios
+```
+
+- `GET /health` comprueba liveness; `GET /ready` comprueba conexión a PostgreSQL.
+- `POST /assistant/chat` limita tamaño de pregunta, duración, tokens de salida, número de tools y frecuencia por profesor.
+- `get_student_summary` obtiene identidad del token y filtra por tutor en SQL.
+- `search_school_documents` devuelve fragmentos locales y acotados.
+- CI está configurada con Ruff y pytest. Las pruebas unitarias/offline cubren la recuperación documental; no sustituyen pruebas end-to-end autenticadas.
+- El modelo configurado localmente es `gpt-4o-mini`; la API recibe `store: false`.
+
+Esta es una POC local, no un sistema de producción. Quedan fuera integraciones de horarios/incidencias/tickets, recuperación semántica con embeddings/vector DB, despliegue productivo, límites distribuidos, observabilidad distribuida y una evaluación online sistemática. No usar datos reales de alumnos.

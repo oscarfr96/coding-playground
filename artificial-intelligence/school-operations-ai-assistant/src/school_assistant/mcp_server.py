@@ -6,12 +6,18 @@ from uuid import UUID
 
 from mcp.server import MCPServer
 from mcp.server.auth.middleware.auth_context import get_access_token
-from mcp.server.auth.provider import AccessToken, TokenVerifier
+from mcp.server.auth.provider import AccessToken
 from mcp.server.auth.settings import AuthSettings
 from mcp.types import ToolAnnotations
 
 from .database.session import SessionLocal
-from .schemas import GetStudentSummaryInput, StudentSummary, StudentSummaryToolResult
+from .schemas import (
+    GetStudentSummaryInput,
+    SearchSchoolDocumentsInput,
+    SearchSchoolDocumentsResult,
+    StudentSummary,
+    StudentSummaryToolResult,
+)
 from .security import (
     IdentityProviderUnavailableError,
     InvalidAccessTokenError,
@@ -19,6 +25,7 @@ from .security import (
     OIDC_ISSUER_URL,
     validate_access_token,
 )
+from .services.documents import search_school_documents
 from .services.students import get_student_summary as load_student_summary
 
 
@@ -98,6 +105,19 @@ async def get_student_summary_tool(
         teacher_id,
     )
     return StudentSummaryToolResult(found=summary is not None, student=summary)
+
+
+@mcp.tool(
+    name="search_school_documents",
+    title="Search school documents",
+    annotations=ToolAnnotations(readOnlyHint=True, openWorldHint=False),
+)
+async def search_school_documents_tool(
+    request: SearchSchoolDocumentsInput,
+) -> SearchSchoolDocumentsResult:
+    """Search approved fictional school guidance and return relevant excerpts."""
+    chunks = await asyncio.to_thread(search_school_documents, request)
+    return SearchSchoolDocumentsResult(chunks=chunks)
 
 
 def _load_student_summary(
