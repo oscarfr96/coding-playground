@@ -1,16 +1,29 @@
-# Fuzzy Respiratory Diagnosis Expert System
+# Fuzzy-rule inference exercise
 
-This repository contains a simple fuzzy logic-based expert system designed to provide a preliminary diagnosis of common respiratory illnesses such as flu, cold, and pharyngitis. Unlike a strict boolean rule-based system, this approach uses fuzzy logic to handle uncertainty and varying intensities of symptoms. As a result, the system can produce more nuanced conclusions that better reflect the complexity of real-world clinical scenarios.
+Educational implementation of a small fuzzy expert system using Python's standard
+library. Symptom names and disease labels provide a concrete example for studying
+rule evaluation; the rules are hand-written and not clinically validated.
 
-## Features
+## Run
 
-- **Fuzzy Symptom Representation:** Each symptom is assigned a value between 0.0 and 1.0, indicating the intensity or certainty of that symptom.
-- **Basic Inference Engine:** The system uses a forward-chaining approach to evaluate predefined fuzzy rules and infer possible diseases.
-- **Multiple Rules per Disease:** Each disease can be suggested by multiple rules. The system combines these rules using fuzzy logic operations (`min` for AND, `max` for OR).
-- **Uncertainty Handling:** By applying fuzzy logic, the system can deal with partial presence/absence of symptoms, enabling more realistic and flexible reasoning.
+From this directory:
 
-## Getting Started
+```powershell
+python fuzzy_expert_system.py
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/oscarfr96/fuzzy-respiratory-diagnosis-expert-system.git
+No external packages, dataset download or model training are required.
+
+## How the example works
+
+- Inputs are membership values between 0 and 1, supplied in the script.
+- A positive condition uses its value; a negative condition uses `1 - value`.
+- A rule combines its conditions with `min`.
+- Several rules for the same label combine with `max`.
+- The final demonstration selects the label with the largest score.
+
+These scores are fuzzy membership values, not disease probabilities or diagnostic
+accuracy estimates. The final selection is a simple maximum, not a full clinical
+inference or validated defuzzification system.
+
+[Back to machine learning](../../README.md)

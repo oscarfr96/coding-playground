@@ -1,55 +1,56 @@
-# oscarfraile.dev — Personal Portfolio
+# oscarfraile.dev · Personal portfolio
 
-Personal portfolio built with React 19, TypeScript, Vite, and Tailwind CSS v4.
+Personal portfolio built with React 19, TypeScript, Vite and Tailwind CSS 4.
+English and Spanish content share reusable components and a small language context.
 
-## Tech Stack
+## Features and structure
 
-- **React 19** + **TypeScript**
-- **Vite** — build tool and dev server
-- **Tailwind CSS v4** — utility-first styling with `@theme` custom tokens
-- **lucide-react** — icons
+- Hero, professional experience, technology stack, education and project sections.
+- Language toggle with copy in `src/context/translations.ts`.
+- Keyword emphasis through `HighlightText`.
+- Pastel theme, sticker-style cards and wave dividers using semantic CSS tokens.
+- Downloadable CVs in English and Spanish.
 
-## Features
-
-- Bilingual (EN / ES) via a custom `LanguageContext` — no i18n library needed
-- Apple-inspired minimal design with a brand color accent palette
-- Keyword highlighting in bio and experience descriptions (`HighlightText` component)
-- Sections: Hero · Experience · Tech Stack · Projects
-- Project cards with live demo and source code links
-
-## Project Structure
-
-```
+```text
 src/
-├── assets/          # Images and logo
-├── components/      # Layout, Hero, Experience, TechStack, Projects, HighlightText
-├── context/         # LanguageContext + translations (en/es)
-└── index.css        # Tailwind @theme tokens
-public/
-└── cv-oscar-fraile.pdf
+├── assets/          Profile image and logo
+├── components/      Layout, sections and shared visual components
+├── context/         LanguageContext and translations
+└── index.css        Tailwind theme tokens and animations
+scripts/             CV generation scripts
+public/              Downloadable English/Spanish PDFs
 ```
 
-## Getting Started
+## Run and check
 
-```bash
-npm install
+From this directory, using a Node.js version compatible with Vite 7 (Node 22.12+):
+
+```powershell
+npm ci
 npm run dev
 ```
 
-```bash
-npm run build   # Type-check + production build
-npm run lint    # ESLint
+```powershell
+npm run lint
+npm run build
+npm run preview
 ```
 
-## Update the downloadable CVs
+`build` runs TypeScript checks before producing `dist/`. There is no `npm test` script.
+The portfolio is independent of the other React exercises in the parent directory.
 
-The English and Spanish PDFs reuse the experience and profile copy from
-`src/context/translations.ts`. After updating that copy, run:
+## Update downloadable CVs
 
-```bash
-pip install reportlab
+The PDFs reuse experience and profile text from `src/context/translations.ts`.
+After editing the copy, install Python's `reportlab` package in your chosen environment
+and run:
+
+```powershell
 npm run cv
 ```
 
-Use `PYTHON` to select a Python executable if needed. The generator writes both
-CVs to `public/`; run it before `npm run build` to include the updated downloads.
+Set `PYTHON` if a specific interpreter is needed. The generator writes
+`public/cv-oscar-fraile.pdf` and `public/cv-oscar-fraile-es.pdf`. Generate them before
+the production build if you want the downloads to include the latest text.
+
+[Back to React](../README.md)

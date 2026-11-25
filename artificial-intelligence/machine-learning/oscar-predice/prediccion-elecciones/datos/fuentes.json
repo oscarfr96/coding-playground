@@ -1,0 +1,243 @@
+{
+  "consulta": "2026-11-25",
+  "eleccion": "2026-11-29",
+  "estado": "Inventario de descubrimiento. No contiene una base completa de encuestas ni garantiza que todas las casas tengan una encuesta reciente comparable.",
+  "reglas": [
+    "Comprobar la publicación original y la ficha técnica antes de admitir una encuesta.",
+    "Guardar también las encuestas descartadas y el motivo.",
+    "No usar un promedio de otro modelo como si fuera una encuesta.",
+    "No dar por verificada la última oleada por aparecer en un recopilador."
+  ],
+  "fuentes_institucionales": {
+    "convocatoria": "https://www.boe.es/buscar/doc.php?id=BOE-A-2026-20742",
+    "resultados_2023": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-18907",
+    "correccion_resultados_2023": "https://www.boe.es/buscar/doc.php?id=BOE-A-2023-19537",
+    "loreg": "https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672#asesentaynueve"
+  },
+  "encuestadoras": [
+    {
+      "nombre": "Sigma Dos",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "40dB",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "SocioMétrica",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": "https://www.elespanol.com/espana/politica/20261122/penultimo-sondeo-pp-aventaja-psoe-puntos-escanos-oposicion-semana/1003744468035_0.html",
+      "estado": "original_localizado_ingesta_pendiente",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "CIS",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "NC Report",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Target Point",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Hamalgama",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "DYM",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": "https://www.20minutos.es/nacional/psoe-sube-28-pero-sigue-lejos-pp-que-suma-mayoria-absoluta-con-vox_7063769_0.html",
+      "estado": "original_localizado_ingesta_pendiente",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "InvyMark",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Celeste Tel",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "GAD3",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": "https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026-ii/",
+      "estado": "original_localizado_ingesta_pendiente",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Simple Lógica",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Sondaxe",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Data10",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "GESOP",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Ateneo del Dato",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "IMOP",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Ipsos",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "More in Common",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": "https://moreincommon.es/pulso-electoral.html",
+      "estado": "original_localizado_ingesta_pendiente",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Cluster17",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Winston",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Opina 360",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "AtlasIntel",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Convergent Opinion",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Demoscopia",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": "Identidad y posible relación con SW Demoscopia pendientes de resolver; no contar ambas como independientes."
+    },
+    {
+      "nombre": "ODEC",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "Public First",
+      "fuente_descubrimiento": "https://demoscopio.es/es",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    },
+    {
+      "nombre": "YouGov",
+      "fuente_descubrimiento": "https://www.electografica.com/p/resumen-de-encuestas-para-elecciones.html",
+      "publicacion_original_localizada": null,
+      "estado": "pendiente_localizar_original",
+      "ultima_oleada_verificada": false,
+      "nota": null
+    }
+  ]
+}

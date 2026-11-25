@@ -1,0 +1,2 @@
+# Una única definición de dependencias: pyproject.toml.
+-e .[apps,dev]

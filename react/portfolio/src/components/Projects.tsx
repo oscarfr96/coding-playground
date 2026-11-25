@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/useLanguage';
 import SectionHeading from './SectionHeading';
 import HighlightText from './HighlightText';
 

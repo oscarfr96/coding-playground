@@ -1,60 +1,42 @@
-# To-Do List App
+# Kotlin task manager
 
-Aplicación de gestión de tareas desarrollada con **Kotlin**, **Jetpack Compose** y **Firebase**, que permite crear, organizar y dar seguimiento a tareas diarias con características avanzadas como priorización, vistas organizadas temporalmente, calendario interactivo y temas personalizables.
+Aplicación Android de aprendizaje con Kotlin, Jetpack Compose y Firebase.
+Incluye autenticación, creación y edición de tareas, prioridades, filtros, calendario,
+gestos y selección de tema.
 
-Demo prototipo en Figma: https://www.figma.com/proto/bQE5XgmDtznhc4BPNYZwle/TaskManager-App?node-id=0-1&t=EOuRub4dCntK06FZ-1
+## Organización
 
-## Características Principales
+`app/src/main/java/com/example/kotlin_to_do_app/` contiene:
 
-- ✅ **Autenticación de usuarios** con Firebase Authentication.
-- 📋 **Gestión completa de tareas**: creación, edición, eliminación y completado.
-- 🚩 **Priorización de tareas**: Alta, Media, Baja.
-- 📅 **Organización temporal**: visualización por día, futuras y pasadas.
-- 📆 **Vista de calendario interactivo** con indicadores visuales.
-- 🔍 **Filtros avanzados** por texto, prioridad y fecha.
-- 🤚 **Interacciones gestuales**: deslizar para completar o eliminar tareas.
-- 🌗 **Temas claro y oscuro** personalizables.
+- `ui/`: navegación, pantallas, componentes y tema Compose.
+- `viewmodel/`: estado y operaciones de tareas y tema.
+- `repository/`: acceso a los datos de tareas.
+- `auth/`: estado y operaciones de autenticación.
+- `model/`: modelos utilizados por la aplicación.
 
-## Arquitectura
+El flujo principal es Compose → ViewModel → Repository → Firebase.
 
-El proyecto sigue una arquitectura **MVVM (Model-View-ViewModel)** con **Repository Pattern**, garantizando:
+## Abrir y configurar
 
-- Separación clara de responsabilidades.
-- Mayor facilidad para pruebas unitarias.
-- Alta mantenibilidad y escalabilidad.
-- Mejor rendimiento y fluidez en la experiencia del usuario.
+Abre **esta carpeta**, `playground/kotlin-to-do-app`, en Android Studio, no la raíz
+de `coding-playground`. Usa el JDK compatible con el Android Gradle Plugin configurado
+en `gradle/libs.versions.toml` y el Gradle Wrapper incluido.
 
+1. Instala Android SDK 35. La app tiene `minSdk 24` y `targetSdk 35`.
+2. Registra tu aplicación Firebase con el identificador `com.example.kotlin_to_do_app`.
+3. Configura Firebase Authentication y Firestore para tu proyecto.
+4. Coloca tu configuración en `app/google-services.json` y revisa las reglas de acceso.
+5. Sincroniza Gradle y ejecuta la aplicación en un dispositivo o emulador compatible.
 
-## Tecnologías Utilizadas
+Desde esta carpeta, en Windows:
 
-- **Kotlin** 
-- **Jetpack Compose** – framework declarativo para la interfaz.
-- **Firebase Authentication** – autenticación segura de usuarios.
-- **Firebase Firestore** – almacenamiento NoSQL en la nube.
-- **Material Design 3** – sistema de diseño adaptable.
-- **Flow y StateFlow** – manejo reactivo de datos.
-- **Coroutines** – programación asíncrona eficiente.
-
-## Flujo de Datos
-
-```plaintext
-Interfaz de Usuario (Compose) ↔ ViewModel ↔ Repository ↔ Firebase
+```powershell
+.\gradlew.bat assembleDebug
+.\gradlew.bat testDebugUnitTest
 ```
 
-## Instalación y Configuración
+La compilación requiere el SDK y tu configuración Firebase; no forma parte de la CI
+del curso de LangChain. Los tests incluidos son los ejemplos iniciales de Android,
+no una cobertura funcional completa de tareas o autenticación.
 
-1. Clona el repositorio:
-
-```bash
-git clone <URL_REPOSITORIO>
-```
-
-2. Abre el proyecto en Android Studio.
-3. Configura Firebase Authentication y Firestore desde [Firebase Console](https://console.firebase.google.com/).
-4. Descarga y coloca el archivo `google-services.json` en la carpeta `/app`.
-5. Sincroniza las dependencias en Android Studio.
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT.
-
+[Volver a Playground](../README.md)

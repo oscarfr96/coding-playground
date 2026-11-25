@@ -1,0 +1,41 @@
+name: LangChain and LangGraph course
+
+on:
+  push:
+    paths:
+      - "artificial-intelligence/langchain-langgraph-python/**"
+      - ".github/workflows/langchain-langgraph-python.yml"
+  pull_request:
+    paths:
+      - "artificial-intelligence/langchain-langgraph-python/**"
+      - ".github/workflows/langchain-langgraph-python.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  course:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    defaults:
+      run:
+        working-directory: artificial-intelligence/langchain-langgraph-python
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+          cache-dependency-glob: artificial-intelligence/langchain-langgraph-python/uv.lock
+      - name: Install locked dependencies
+        run: uv sync --frozen --extra apps --extra dev
+      - name: Lint
+        run: uv run --frozen ruff check .
+      - name: Formatting
+        run: uv run --frozen ruff format --check .
+      - name: Offline behavior and UI tests
+        run: uv run --frozen python -m pytest -q

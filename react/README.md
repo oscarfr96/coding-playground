@@ -1,18 +1,14 @@
-<div align="center">
-  <h1>🌟 My React Playground ⚛️</h1>
-  <p>A collection of small projects built with React to learn, improve, and have fun!</p>
-</div>
+# React playground
 
----
+Independent React projects with their own dependencies and Vite commands.
 
-## 🚀 About
-This repository is dedicated to experimenting with React, building interactive and responsive components, and exploring new ideas. Each project is an opportunity to improve and enjoy coding.
+| Project | Stack | Code |
+| --- | --- | --- |
+| Personal portfolio | React 19, TypeScript, Tailwind CSS 4 | [Setup and architecture](portfolio/README.md) |
+| Twitter Follow Card | React 18 and Vite | [Component exercise](projects/twitter-follow-card/README.md) |
 
----
+Enter the selected project's directory before running `npm ci`, `npm run dev`,
+`npm run build` or `npm run lint`. The `package.json` in this directory is an old
+placeholder; it does not install or run these projects together.
 
-## ⌨️ Projects
-| Num. | Project | Code | Live Demo |
-| --- | --- | --- | --- |
-| `01` | Twitter Follow Card | [Code](projects/twitter-follow-card/) | [Visit](https://of-twitterfollowcard.surge.sh/) |
-
----
+[Back to the repository](../README.md)

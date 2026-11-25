@@ -1,8 +1,21 @@
-# React + Vite
+# Twitter Follow Card
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Small React 18 exercise for reusable profile cards, props and local follow state.
+The project uses Vite and has its own dependencies.
 
-Currently, two official plugins are available:
+From this directory:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```powershell
+npm ci
+npm run dev
+```
+
+```powershell
+npm run build
+npm run lint
+npm run preview
+```
+
+This is a UI exercise; following a card does not call Twitter/X or persist an account.
+
+[Back to React](../../README.md)

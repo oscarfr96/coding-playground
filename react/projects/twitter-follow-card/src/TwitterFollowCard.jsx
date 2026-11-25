@@ -1,9 +1,8 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
-export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
+export function TwitterFollowCard ({ children, userName, initialIsFollowing = false }) {
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
-
-  console.log('[TwitterFollowCard] render with userName: ', userName)
 
   const text = isFollowing ? 'Siguiendo' : 'Seguir'
   const buttonClassName = isFollowing
@@ -11,7 +10,7 @@ export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
     : 'tw-followCard-button'
 
   const handleClick = () => {
-    setIsFollowing(!isFollowing)
+    setIsFollowing(previous => !previous)
   }
 
   return (
@@ -19,7 +18,7 @@ export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
       <header className='tw-followCard-header'>
         <img
           className='tw-followCard-avatar'
-          alt='El avatar de oscarfr96'
+          alt={`Avatar de ${userName}`}
           src={`https://unavatar.io/${userName}`}
         />
         <div className='tw-followCard-info'>
@@ -36,4 +35,9 @@ export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
       </aside>
     </article>
   )
+}
+TwitterFollowCard.propTypes = {
+  children: PropTypes.node.isRequired,
+  userName: PropTypes.string.isRequired,
+  initialIsFollowing: PropTypes.bool
 }

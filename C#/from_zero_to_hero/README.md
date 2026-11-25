@@ -1,37 +1,30 @@
-# C# From Zero To Hero
+# C# From Zero to Hero
 
-Este proyecto está organizado para facilitar el aprendizaje y la navegación por los ejercicios del curso.
+Curso de fundamentos con un menú de consola de 22 entradas. `Program.cs` organiza
+la navegación y llama a los ejercicios; las clases están agrupadas por tema.
 
-## Estructura
+| Carpeta | Contenido |
+| --- | --- |
+| `01_Basics/` | Variables, conversiones, Math, aleatoriedad y strings |
+| `02_ControlFlow/` | Operadores, comparaciones, switch, bucles y ternarios |
+| `03_DataStructures/` | Arrays, objetos, listas y diccionarios |
+| `04_OOP/` | Clases, herencia, interfaces, polimorfismo y ejemplos auxiliares |
+| `05_Advanced/` | Métodos, sobrecargas, excepciones, enums y genéricos |
+| `06_Async/` | Threads y ejemplos con async/await |
 
-- **Program.cs**: Punto de entrada. Solo gestiona la navegación y llama a los ejercicios.
-- **Clases/**: Clases auxiliares como `Mensajes` y `Humano`.
-- **Objetos/**: Ejemplos de clases de objetos.
-- **Ejercicios/**: Cada ejercicio está en un archivo/clase independiente:
-  - VariablesEjercicio.cs
-  - TypeCastingEjercicio.cs
-  - OperadoresAritmeticosEjercicio.cs
-  - ClaseMathEjercicio.cs
-  - NumerosAleatoriosEjercicio.cs
-  - StringMethodsEjercicio.cs
-  - OperadoresLogicosYComparacionEjercicio.cs
-  - SwitchStatementsEjercicio.cs
-  - LoopsEjercicio.cs
-  - ArraysEjercicio.cs
-  - CondicionalTernarioEjercicio.cs
-  - StringInterpolationEjercicio.cs
-  - ExceptionsEjercicio.cs
-  - MetodosEjercicio.cs
+## Ejecutar
 
-## Cómo ejecutar
+El proyecto apunta a **.NET 9**: requiere ese runtime para ejecutarse y un SDK
+compatible para compilar. Desde esta carpeta:
 
-1. Abre el proyecto en Visual Studio o VS Code.
-2. Ejecuta Program.cs.
-3. Cada ejercicio se ejecuta en orden y puedes navegar fácilmente por el código.
+```powershell
+dotnet build
+dotnet run
+```
 
-## Ventajas
-- Fácil de mantener y ampliar.
-- Cada tema está separado y es accesible.
-- Program.cs es limpio y solo gestiona el flujo.
+Selecciona un número del menú y pulsa Enter para volver al terminar. `0` sale.
+Algunos ejemplos requieren entrada interactiva; no son una batería de pruebas.
+Las clases auxiliares de OOP se pueden estudiar directamente aunque no tengan una
+opción individual en el menú.
 
-¡Disfruta el curso y la nueva organización!
+[Volver a C#](../README.md)

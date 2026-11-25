@@ -17,7 +17,7 @@ Single-page portfolio app built with React 19, TypeScript, Vite, and Tailwind CS
 
 **Entry point:** `src/main.tsx` wraps `<App>` in `<LanguageProvider>` (the only context provider).
 
-**Internationalization:** All UI strings live in `src/context/translations.ts` as two exported objects (`en`, `es`). `LanguageContext.tsx` exposes a `useLanguage()` hook that returns `{ t, language, toggleLanguage }`. Every component gets translated strings via `const { t } = useLanguage()` — never hardcode UI text.
+**Internationalization:** All UI strings live in `src/context/translations.ts` as two exported objects (`en`, `es`). `LanguageContext.tsx` provides the context defined in `language-context.ts`; `useLanguage.ts` exposes a `useLanguage()` hook that returns `{ t, language, toggleLanguage }`. Every component gets translated strings via `const { t } = useLanguage()` — never hardcode UI text.
 
 **Page structure** (`src/App.tsx`): sections rendered top-to-bottom inside `<Layout>`, each separated by a `<WavyDivider>` (color set per-section via the `text-*` class):
 - `Hero` — intro with profile image and contact links

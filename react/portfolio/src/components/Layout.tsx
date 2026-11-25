@@ -1,7 +1,7 @@
 import { Github, FileText, Globe } from 'lucide-react';
 import React from 'react';
 import logoImg from '../assets/logo-oscarfraile.png';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/useLanguage';
 
 interface LayoutProps {
     children: React.ReactNode;

@@ -1,0 +1,5 @@
+Alex Demo — perfil ficticio para pruebas
+Desarrollo backend con Python, FastAPI y PostgreSQL durante tres años.
+Experiencia en pruebas automatizadas con pytest y despliegues con Docker.
+Proyecto de aprendizaje: asistente RAG con LangChain y LangGraph.
+Formación: Grado en Ingeniería Informática.

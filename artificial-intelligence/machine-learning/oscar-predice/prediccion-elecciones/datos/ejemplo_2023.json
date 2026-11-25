@@ -1,0 +1,21 @@
+{
+  "finalidad": "Ejemplo didáctico individual; no es el promedio de 2023 ni una calibración.",
+  "eleccion": "2023-07-23",
+  "camara": "Congreso",
+  "ambito": "España",
+  "partido": "PSOE (familia nacional, incluido PSC)",
+  "encuestadora": "40dB",
+  "publicacion": "2023-07-17",
+  "campo_inicio": "2023-07-12",
+  "campo_fin": "2023-07-16",
+  "muestra": 2000,
+  "metodo": "CAWI",
+  "universo": "Residentes con derecho a voto; excluye Ceuta y Melilla.",
+  "estimacion_pct": 28.7,
+  "resultado_pct": 31.68,
+  "precision_resultado": "Porcentaje publicado con dos decimales; cálculo del error aproximado.",
+  "fuente_encuesta": "https://elpais.com/espana/elecciones-generales/2023-07-17/la-campana-enfila-la-recta-final-con-la-derecha-acariciando-la-mayoria.html",
+  "fuente_resultado": "https://elpais.com/espana/elecciones/generales/2023/congreso/",
+  "referencia_oficial_para_ingesta_posterior": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-18907",
+  "nota": "El resultado se ha consultado en EL PAÍS. La ingesta del BOE y su corrección BOE-A-2023-19537 queda pendiente. Universo de encuesta y resultado no son idénticos: el definitivo incluye CERA."
+}

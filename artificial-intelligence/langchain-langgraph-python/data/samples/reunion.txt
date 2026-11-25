@@ -1,0 +1,6 @@
+Reunión ficticia del equipo, 10 de octubre de 2025.
+Participan Alex, Dana y Sam.
+Alex explica que la API está lista para las pruebas. Dana propone revisar
+los casos de error y Sam señala que falta documentar la instalación.
+Acuerdan que Dana preparará las pruebas antes del viernes y Sam actualizará
+el README. Alex revisará los resultados el lunes.

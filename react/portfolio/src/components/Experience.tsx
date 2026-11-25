@@ -1,4 +1,4 @@
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/useLanguage';
 import HighlightText from './HighlightText';
 import SectionHeading from './SectionHeading';
 

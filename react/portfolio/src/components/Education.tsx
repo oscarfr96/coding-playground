@@ -1,5 +1,5 @@
 import { Award, ArrowUpRight } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/useLanguage';
 import SectionHeading from './SectionHeading';
 
 export default function Education() {

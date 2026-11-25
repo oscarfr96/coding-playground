@@ -1,137 +1,60 @@
-# 💬 LangChain RAG Chatbot con OpenAI, ChromaDB, FastAPI y React
+# Alice RAG chatbot · earlier full-stack experiment
 
-Este proyecto es una implementación completa de un sistema **RAG** (Retrieval-Augmented Generation) con **LangChain** en el backend y una interfaz moderna en **React** como frontend.
+Learning project based on the [Pixegami RAG tutorial](https://www.youtube.com/watch?v=tcqEUSNCn8I),
+extended with a FastAPI endpoint and a React interface. It retrieves passages from
+*Alice in Wonderland* and supplies them as context to a language model.
 
-Permite consultar tus propios documentos (en este caso, *Alice in Wonderland* en formato `.md`) usando lenguaje natural, y obtener respuestas generadas por IA basadas en contexto real.
+## Implementation
 
----
+- `backend/create_database.py`: load Markdown, split it and create the Chroma index.
+- `backend/query_data.py`: query the local index from the console.
+- `backend/backend.py`: FastAPI `POST /ask`, accepting `{"query": "..."}` and returning `{"answer": "..."}`.
+- `backend/data/books/alice_in_wonderland.md`: the included document.
+- `frontend/`: React 19, TypeScript and Vite UI.
 
-## 🧠 ¿Qué es RAG?
+## Compatibility status
 
-RAG combina:
+This is an earlier experiment. The backend imports legacy modules such as
+`langchain.prompts` and `langchain.text_splitter`, while its requirements are not locked.
+A fresh install of the latest packages is not guaranteed to work. Review and select
+a compatible LangChain environment before running it; no clean-install backend check
+is claimed here.
 
-- 🔍 Recuperación de fragmentos relevantes desde tus documentos usando embeddings.
-- 🧠 Generación de respuestas con LLM (como GPT) usando ese contexto como referencia.
+For the reviewed, reproducible examples, use the separate
+[LangChain/LangGraph course](../../langchain-langgraph-python/README.md).
 
----
+## Backend workflow
 
-## 🗂️ Estructura del proyecto
+Work from `backend/`, because its data and index paths are relative to that directory.
+Use an isolated Python environment with the compatible dependencies and Markdown
+loader support (`unstructured[md]`). Set `OPENAI_API_KEY` in a local `.env`.
 
-```
-langchain-rag-alice-chatbot/
-├── backend/
-│   ├── create_database.py
-│   ├── query_data.py
-│   ├── backend.py
-│   ├── chroma/                  ← base de datos vectorial
-│   ├── data/books/alice.md
-│   ├── requirements.txt
-│   └── .env
-├── frontend/
-│   ├── src/
-│   └── ...
-├── README.md
-```
-
----
-
-## ⚙️ Instalación del Backend (Python)
-
-### 1. Entra en la carpeta del backend
-
-```bash
-cd backend
-```
-
-### 2. Crea entorno virtual
-
-```bash
-python -m venv venv
-.\venv\Scripts\activate
-```
-
-### 3. Instala dependencias
-
-```bash
-pip install -r requirements.txt
-pip install "unstructured[md]"
-```
-
-### 4. Añade tu API key
-
-Crea un archivo `.env`:
-
-```
-OPENAI_API_KEY=sk-xxxxx
-```
-
----
-
-## ▶️ Uso del Backend
-
-### 1. Crear la base vectorial
-
-```bash
+```powershell
 python create_database.py
-```
-
-### 2. Probar en consola
-
-```bash
 python query_data.py "How does Alice meet the Mad Hatter?"
+python -m uvicorn backend:app --host 127.0.0.1 --port 8000
 ```
 
-### 3. Levantar API con FastAPI
+The index builder **replaces `backend/chroma/`** when run again. Indexing and answers
+use the configured OpenAI account. The retrieval threshold in the example is a
+heuristic, not a calibrated confidence estimate.
 
-```bash
-uvicorn backend:app --reload
-```
+## Frontend workflow
 
-Visita: [http://localhost:8000/docs](http://localhost:8000/docs)
+In a second terminal, from `frontend/`:
 
----
-
-## 💻 Frontend en React
-
-### 1. Entra en la carpeta `frontend/`
-
-```bash
-cd ../frontend
-npm install
-```
-
-### 2. Ejecuta la app
-
-```bash
+```powershell
+npm ci
 npm run dev
 ```
 
-> Asegúrate de que el backend está corriendo en `http://localhost:8000`.
+The RAG client calls `http://127.0.0.1:8000/ask`. The frontend also contains an older
+direct-OpenAI module (`src/services/openai.ts`) that reads `VITE_OPENAI_API_KEY` and
+allows browser access. `Chat.tsx` imports it eagerly, so its missing-key check can
+prevent startup even when you intend to use RAG. Refactoring that legacy mode behind
+a backend is pending; do not put a private API key in a browser bundle.
 
-### 3. Cómo funciona
+The example API is intended for local experimentation and has permissive CORS.
+It has not been hardened for a public deployment.
 
-Tu componente React hace una petición POST al backend:
-
-```js
-const response = await fetch("http://localhost:8000/ask", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ query: "Your question" })
-});
-const data = await response.json();
-console.log(data.answer);
-```
-
----
-
-## 📹 Basado en:
-
-🎥 [Tutorial original de RAG + LangChain - por Pixegami](https://www.youtube.com/watch?v=tcqEUSNCn8I)
-
----
-
-## 🙌 Créditos
-
-Proyecto extendido por **Oscar**.  
-Incluye mejoras de integración full-stack, gestión moderna de dependencias, y soporte para frontend personalizado con React.
-
+[Back to the area index](../README.md)

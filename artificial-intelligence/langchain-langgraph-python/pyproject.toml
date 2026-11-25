@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langchain-langgraph-course"
+version = "0.1.0"
+description = "Curso práctico: cadenas, RAG, grafos y memoria con Python"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "langchain-core>=1,<2",
+    "langchain-openai>=1,<2",
+    "langgraph>=1,<2",
+    "python-dotenv>=1,<2",
+    "pydantic>=2,<3",
+]
+
+[project.optional-dependencies]
+rag = [
+    "langchain-chroma>=1,<2",
+    "langchain-community>=0.4,<0.5",
+    "langchain-text-splitters>=1,<2",
+    "pypdf>=6,<8",
+]
+memory = ["langgraph-checkpoint-sqlite>=3,<4"]
+apps = ["langchain-langgraph-course[rag,memory]", "streamlit>=1.40,<2"]
+google = ["langchain-google-community[drive]>=3,<4"]
+dev = ["pytest>=8,<10", "ruff>=0.14,<1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
